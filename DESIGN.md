@@ -1,332 +1,385 @@
-# Julie Chesne — Style Reference
-> A clean bench in a well-run lab. Surfaces are uncluttered, labels are precise, and every element serves a clear, functional purpose.
+# Julie Chesne — Brand & Interface System
 
-**Theme:** light
+> **Positioning:** Strategic consulting for early-stage biotech. The interface should feel like a rigorous operating system for scientific progress: calm, exact, evidence-led, and built for consequential decisions.
 
-Julie Chesne embraces a 'scientific clarity meets professional elegance' aesthetic, prioritizing informational clarity and directness. The near-monochromatic palette, dominated by light grays and deep charcoals, provides a stark, high-contrast backdrop for consulting content. A single vivid orange accent color is deployed sparingly as a functional indicator, highlighting interactive elements and key information without visual noise. The strong typographic voice, characterized by precise letter-spacing and a monospace variant for data and references, reinforces the structured, consulting-focused identity.
+**Theme:** dark by default
 
-## Tokens — Colors
+**Reference:** This system is informed by a Chrome DevTools review of [Factory](https://factory.ai/) on 2026-07-13 (homepage, Enterprise, Pricing, Company, News, Science, and Contact). It adopts the reference's dark technical restraint, disciplined grid, mono metadata, and systems-oriented editorial rhythm. It must **not** reproduce Factory's logo, name, product UI, dashboard art, proprietary imagery, or copy. Julie's brand remains human, scientific, and consulting-specific—not a software-product clone.
 
-| Name | Value | Token | Role |
-|------|-------|-------|------|
-| Carbon Black | `#020202` | `--color-carbon-black` | Primary text, darkest surface background (e.g., active navigation items), critical interactive elements. |
-| Chalk Gray | `#eeeeee` | `--color-chalk-gray` | Page background, light surface elements (card backgrounds), default button backgrounds. Provides a clean, spacious canvas. |
-| Faded Silver | `#fafafa` | `--color-faded-silver` | Slightly lighter alternative to Chalk Gray, used for subtle differentiation of card backgrounds and elements. |
-| Cool Gray | `#b8b3b0` | `--color-cool-gray` | Subtle borders, inactive button outlines, secondary text. Establishes divisions without harshness. |
-| Graphite | `#3d3a39` | `--color-graphite` | Strong borders, dark icons, secondary text. A darker gray for depth and contrast. |
-| Ash Gray | `#a49d9a` | `--color-ash-gray` | Subtle interactive borders and backgrounds, similar to Cool Gray but with a touch more warmth. |
-| Helix Orange | `#ef6f2e` | `--color-helix-orange` | Accent color for highlight badges, interactive indicators, and small, high-attention elements. Its vividness cuts through the neutral palette. |
+---
 
-## Tokens — Typography
+## 1. Brand direction
 
-### Geist — Primary typeface for all headings, body text, navigation, and general UI. The carefully tuned negative letter-spacing, particularly at larger sizes, creates a composed, intentional feel, preventing headlines from feeling loose. · `--font-geist`
-- **Substitute:** Inter
-- **Weights:** 400
-- **Sizes:** 14px, 16px, 18px, 24px, 48px, 60px
-- **Line height:** 1.00, 1.20, 1.50
-- **Letter spacing:** -0.0480em, -0.0300em
-- **Role:** Primary typeface for all headings, body text, navigation, and general UI. The carefully tuned negative letter-spacing, particularly at larger sizes, creates a composed, intentional feel, preventing headlines from feeling loose.
+### Core idea
+**Scientific strategy, made operational.** Julie translates research, pre-clinical evidence, and founder ambition into focused decisions that can withstand investor, partner, and development scrutiny.
 
-### Geist Mono — Used for data points, citations, references, and any content requiring a fixed-width, precise presentation. Its subtle negative letter-spacing maintains a tight, readable block structure. · `--font-geist-mono`
-- **Substitute:** JetBrains Mono
-- **Weights:** 400
-- **Sizes:** 12px, 14px, 16px, 18px
-- **Line height:** 1.00, 1.20, 1.38, 1.50
-- **Letter spacing:** -0.0200em
-- **Role:** Used for data points, citations, references, and any content requiring a fixed-width, precise presentation. Its subtle negative letter-spacing maintains a tight, readable block structure.
+### Brand traits
 
-### Type Scale
+| Be | Never be |
+| --- | --- |
+| Precise and evidence-aware | Vague, hype-led, or jargon-stuffed |
+| Technically fluent | Coldly corporate or software-generic |
+| Decisive and outcome-oriented | Aggressive, alarmist, or salesy |
+| Minimal and structured | Sterile, ornamental, or over-designed |
+| Human at moments that matter | Personality-free or anonymous |
 
-| Role | Size | Line Height | Letter Spacing | Token |
-|------|------|-------------|----------------|-------|
-| caption | 12px | 1.5 | -0.24px | `--text-caption` |
-| body-sm | 14px | 1.5 | — | `--text-body-sm` |
-| body | 16px | 1.5 | — | `--text-body` |
-| subheading | 18px | 1.2 | — | `--text-subheading` |
-| heading | 24px | 1.2 | — | `--text-heading` |
-| heading-lg | 48px | 1.2 | -2.3px | `--text-heading-lg` |
-| display | 60px | 1 | -2.88px | `--text-display` |
+### Reference analysis → Julie adaptation
 
-## Tokens — Spacing & Shapes
+| Observed on Factory | Keep for Julie | Do not copy |
+| --- | --- | --- |
+| Near-black canvas, subtle dot/grid field, light type, sparse orange signals | A dark, high-contrast scientific workspace that makes evidence and action feel primary | Factory's brand mark, software-factory language, live dashboards, or exact animated screen art |
+| Geist for editorial type; Geist Mono for labels, navigation, and metadata | The sans/mono distinction: human-readable narrative versus verifiable signal | Treating every paragraph like code or forcing all copy into uppercase |
+| Large, plain-spoken headlines and short declarative supporting copy | One clear promise per section and direct calls to action | Factory's exact phrasing or its developer-tool framing |
+| 12-column grid, thin borders, small radii, little to no shadow | Structural clarity, contained modules, generous outer whitespace | Dense SaaS pricing/dashboard layouts for consulting content |
+| Metrics, diagrams, status cues, and restrained motion | Process maps, evidence summaries, milestones, and optional outcome metrics | Invented client numbers, fake data, or decorative telemetry |
 
-**Base unit:** 4px
+---
 
-**Density:** comfortable
+## 2. Julie-specific messaging and voice
 
-### Spacing Scale
+### Positioning statement
+Julie Chesne partners with early-stage biotech founders to sharpen pre-clinical strategy, build investor-ready scientific narratives, and define a credible translational roadmap from research to patient impact.
 
-| Name | Value | Token |
-|------|-------|-------|
-| 4 | 4px | `--spacing-4` |
-| 8 | 8px | `--spacing-8` |
-| 12 | 12px | `--spacing-12` |
-| 16 | 16px | `--spacing-16` |
-| 20 | 20px | `--spacing-20` |
-| 24 | 24px | `--spacing-24` |
-| 32 | 32px | `--spacing-32` |
-| 36 | 36px | `--spacing-36` |
-| 40 | 40px | `--spacing-40` |
-| 48 | 48px | `--spacing-48` |
-| 56 | 56px | `--spacing-56` |
-| 64 | 64px | `--spacing-64` |
-| 80 | 80px | `--spacing-80` |
-| 120 | 120px | `--spacing-120` |
+### Voice rules
 
-### Border Radius
+- Lead with the decision, outcome, or constraint—not a generic service label.
+- Use active, economical verbs: **clarify, prioritize, test, align, prepare, translate, de-risk, decide**.
+- Pair scientific specificity with a consequence: “Prioritize the evidence that supports the next financing decision.”
+- Explain uncommon terms once; do not use biotech terminology as decoration.
+- State uncertainty honestly. Prefer “evidence to strengthen” or “question to resolve” over certainty theatre.
+- Use short paragraphs. Let labels, ordered steps, and proof points carry the scanability.
 
-| Element | Value |
-|---------|-------|
-| cards | 6px |
-| header | 0px |
-| buttons | 4px |
-| default | 4px |
+### Copy patterns
 
-### Layout
+| Use | Avoid |
+| --- | --- |
+| “Turn pre-clinical evidence into a financing-ready story.” | “Revolutionary biotech solutions.” |
+| “A focused review of the decisions before your next milestone.” | “End-to-end, world-class support.” |
+| “Strategy grounded in the data you have—and the evidence you still need.” | “Guaranteed investor success.” |
+| “Book a strategy call” | “Let’s disrupt biotech together.” |
 
-- **Section gap:** 72px
-- **Card padding:** 16px
-- **Element gap:** 4px
+### Approved service names
+- **Pre-clinical strategy**
+- **Investor-ready narrative**
+- **Translational roadmap**
 
-## Components
+---
 
-### Text Link
-**Role:** Navigation, inline links, 'Learn More' buttons
+## 3. Color system
 
-Color Carbon Black (#020202) for primary links, transitioning to Graphite (#3d3a39) for secondary. No explicit underline until hover, relying on contrast and context for discoverability. Uses Geist, 14-16px, weight 400.
+The dark canvas is the default. Light surfaces are purposeful interruptions for forms, final CTAs, or printable artifacts—not the overall page background.
 
-### Navigation Link
-**Role:** Top navigation menu items
+### Core tokens
 
-Color Carbon Black (#020202) on Chalk Gray (#eeeeee) background. No special styling, relying solely on typography (Geist, 14px, 400 weight) for visual presence. Active items use the same styling with a subtle visual cue or background change.
+| Name | Value | CSS token | Role |
+| --- | --- | --- | --- |
+| Carbon | `#020202` | `--color-canvas` | Default page canvas; deepest visual field. |
+| Field | `#101010` | `--color-surface` | Header wash, inset modules, dark section variation. |
+| Raised | `#1f1d1c` | `--color-raised` | Filled dark buttons, elevated panels, hover fills. |
+| Rule | `#3d3a39` | `--color-rule` | Default 1px border, grid line, and quiet divider. |
+| Rule strong | `#4d4947` | `--color-rule-strong` | Hover/focus borders and selected controls. |
+| Muted | `#8a8380` | `--color-muted` | Secondary copy, inactive navigation, captions. |
+| Soft | `#a49d9a` | `--color-soft` | Tertiary copy and low-priority labels. |
+| Silver | `#b8b3b0` | `--color-silver` | Disabled/quiet detail and illustrative rules. |
+| Illustration light | `#ccc9c7` | `--color-illustration-light` | Optional low-emphasis diagram, logo, or divider tone. |
+| Illustration pale | `#d6d3d2` | `--color-illustration-pale` | Optional subtle illustrative/divider tone on the dark canvas. |
+| Paper | `#eeeeee` | `--color-text` | Default text on dark surfaces. |
+| White | `#fafafa` | `--color-text-strong` | Primary light CTA fill or highest-emphasis text. |
+| Signal orange | `#ef6f2e` | `--color-accent` | Primary signal: section marker, link state, active step, key annotation. |
+| Orange hover | `#ee6018` | `--color-accent-hover` | Hover/pressed accent. |
+| Orange deep | `#d15010` | `--color-accent-deep` | Data decrease or dark-field orange detail. |
 
-### Ghost Button
-**Role:** Secondary actions, grouped options (In-person / Virtual)
+### Semantic signals
+- Use a muted green signal only for genuinely positive/complete states and an orange signal only for attention, change, or active state.
+- Never encode meaning by color alone. Pair a signal with a text label, icon, or direction marker.
+- Orange should occupy a small fraction of any viewport. It is a calibration mark, not a brand wash.
 
-Transparent background with text color Carbon Black (#020202). Has a subtle Cool Gray (#b8b3b0) border. Padding 0 for inline context. Radius 0px.
+### Background treatment
+- Use `--color-canvas` as the body background and `--color-text` as body text.
+- A very low-contrast dotted or square-grid texture is permitted behind hero/process sections: `rgba(184,179,176,.05)` at most. It should disappear at reading distance and never reduce text contrast.
+- No glossy gradients, neon glows, glassmorphism, or large color fields.
 
-### Outlined Button
-**Role:** Secondary calls to action, resource downloads
+---
 
-Transparent background with Carbon Black (#020202) text. Border color Cool Gray (#b8b3b0), 1px solid. Padding 0 vertically, 12px horizontally. Radius 4px. Font Geist, 16px, 400 weight.
+## 4. Typography
 
-### Filled Button (Light)
-**Role:** Download buttons, primary calls to action
+### Families
 
-Background Chalk Gray (#eeeeee), text Carbon Black (#020202). Border color Ash Gray (#a49d9a). Padding 0 vertically, 12px horizontally. Radius 4px. Font Geist, 16px, 400 weight.
+| Family | Token | Use |
+| --- | --- | --- |
+| Geist | `--font-sans` | Headlines, paragraphs, buttons, navigation, and all editorial content. |
+| Geist Mono | `--font-mono` | Eyebrows, numbered steps, metadata, dates, status labels, compact evidence, and technical annotations. |
 
-### Filled Button (Dark)
-**Role:** Download buttons, primary calls to action (alternative)
+Use variable weights if available; default to 400. Use 500–600 sparingly for a control state or essential emphasis, not to compensate for weak hierarchy.
 
-Background Carbon Black (#020202), text Carbon Black (#020202). Border color Ash Gray (#a49d9a). Padding 6px vertically, 12px horizontally. Radius 8px. The dark background with dark text is counter-intuitive for contrast, suggesting a specific functional or state-based context.
+### Type scale
 
-### List Item Card
-**Role:** Content blocks in feature sections
+Factory observation: 72/72px display at `-2.88px`, 44/46.2px section-display at `-1.76px`, 36/39.6px section heading at `-1.12px`, 28/28px card heading at `-0.56px`, 16/24px body, and 12/12px mono navigation. The following is Julie's responsive implementation of that system.
 
-Transparent background, no shadow, 0px border radius. Padding 0 vertically, 16px horizontally. Used as a container for grouped information. Text uses Carbon Black (#020202).
+| Role | Mobile | Desktop | Line-height | Tracking | Family / use |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Display | 40px | 72px | 1 | `-0.04em` | Geist; one decisive hero statement. |
+| Page title | 36px | 44px | 1.05 | `-0.04em` | Geist; major page/section transition. |
+| Section heading | 30px | 36px | 1.1 | `-0.031em` | Geist; key service, proof, or process section. |
+| Card heading | 22px | 28px | 1 | `-0.02em` | Geist; individual offer or insight. |
+| Subheading | 18px | 18px | 1.2 | normal | Geist; lead-in or card title where 28px is excessive. |
+| Body | 16px | 16px | 1.5 | normal | Geist; primary reading text. |
+| Small body | 14px | 14px | 1.4 | normal | Geist; secondary explanatory text. |
+| Metadata | 12px | 12px | 1 | `0.05em` | Geist Mono; uppercase labels, dates, step numbers. |
+| Technical body | 14px | 14px | 1.45 | `-0.01em` | Geist Mono; evidence notes and compact lists only. |
 
-### Elevated Content Card
-**Role:** Featured content blocks, forms, interactive elements
+### Type rules
+- Headlines are sentence case unless a compact mono label is intentionally uppercase.
+- Use text-wrap balance for short headings where available; do not force awkward manual line breaks on mobile.
+- Do not use italicized marketing headlines, all-caps body copy, or bold walls of text.
+- Keep narrative column widths between 45–65ch. The consulting argument must be easy to read, not merely impressive at scale.
 
-Background Faded Silver (#fafafa), no shadow, 6px border radius. Padding 16px vertically, 0 horizontally. Provides a slight visuallift from the main background.
+---
 
-### Data Callout Block
-**Role:** Highlighted quotes, key metrics, reference data display
+## 5. Layout, spacing, and responsiveness
 
-Background Chalk Gray (#eeeeee), no shadow, 6px border radius. Padding 0. Contains monospaced text for data points and references. May feature interactive elements like a copy button.
+### Grid
 
-### 'NEW' Badge
-**Role:** Highlights new services, recent case studies, or fresh content
+| Context | Columns | Gutter | Outer gutter | Max width |
+| --- | ---: | ---: | ---: | ---: |
+| Mobile | 4 | 16px | 16px | fluid |
+| Tablet | 8 | 20px | 24px | fluid |
+| Desktop | 12 | 24px | 36px | 1920px |
 
-Transparent background, text Helix Orange (#ef6f2e). Radius 0px, padding 0. Appears as a small, vivid text label next to titles, using Geist Mono 12px.
+The 12-column / 24px-gap / 36px-gutter desktop structure is observed from Factory. Julie should use it to align text, proof, portrait, and sections—not to produce a dense product dashboard.
 
-## Do's and Don'ts
+### Spacing scale
+
+Base unit: **4px**.
+
+`4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 120, 160`
+
+- Default inline gap: 8–12px.
+- Control padding: 8px vertical / 14–16px horizontal.
+- Card padding: 24px mobile; 24–32px desktop.
+- Section top/bottom rhythm: 80px minimum on desktop; use 120px between major narrative movements. On mobile use 48–80px.
+- Preserve deliberate blank space around the hero, proof, and final CTA. Empty space is hierarchy, not missing content.
+
+### Breakpoints
+
+- **< 768px:** four-column layout; stack grids and show portrait as a contained module after core copy; hide complex decorative fields.
+- **768–1023px:** eight-column intermediate layout; retain editorial hierarchy, not desktop dashboard density.
+- **≥ 1024px:** twelve-column layout, 24px column gaps, 36px page gutters.
+- **≥ 1920px:** stop expansion at the container maximum; let outer margins grow.
+
+### Shapes and elevation
+- Default radius: **3px**; large contained image/module: **4–6px**.
+- Borders: 1px `--color-rule`; hover/active 1px `--color-rule-strong` or accent where meaningful.
+- Shadows are normally absent. A restrained black shadow may support a floating menu/dialog only.
+- Do not use pills by default. Status chips may be compact rectangular labels with a 3px radius.
+
+---
+
+## 6. Navigation and header
+
+- Fixed or sticky 72px desktop header; 60–64px mobile header.
+- Use the wordmark/name at left, navigation in the middle/right, and one clear primary action at far right.
+- Desktop links: Geist Mono, 12px/12px, uppercase, `0.05em` tracking. Leave generous horizontal separation (around 32px where space permits).
+- Avoid more than five top-level choices for Julie. Recommended: **Approach, Services, Track Record, Publications, Book a call**.
+- Primary header CTA: light fill (`--color-text-strong`) with `--color-canvas` text. Secondary header action: raised dark fill or text link.
+- On hover in a nav group, gently reduce non-hovered siblings rather than adding heavy underlines. Respect `prefers-reduced-motion`.
+
+---
+
+## 7. Hero
+
+### Job
+Introduce the consulting promise, establish Julie as a credible scientific partner, and provide one practical next step.
+
+### Composition
+- Desktop: 12-column grid. Copy spans 6–7 columns; portrait/evidence module spans 4 columns with an intentional gutter between.
+- Mobile: label → display → short proof paragraph → one CTA → portrait/meta. Do not hide the human proof permanently.
+- Start with a mono eyebrow such as `STRATEGIC BIOTECH CONSULTING` or `BELGIUM / GLOBAL`.
+- One display headline; target 2–3 lines maximum at desktop.
+- Supporting copy should be 2–4 short lines, not a manifesto.
+- Use one primary CTA (“Book a strategy call”) and, only when a real destination exists, one quiet text link (“Explore the approach”).
+
+### Evidence module
+Use Julie's portrait, a concise availability/location line, or a genuine process/evidence panel. It may have a dark framed treatment and subtle grid texture. It must not imitate a software analytics dashboard or imply false performance data.
+
+---
+
+## 8. Components
+
+### Buttons
+
+| Variant | Construction | Use |
+| --- | --- | --- |
+| Primary light | `#fafafa` fill, `#020202` text, 3px radius, 1px transparent border | One dominant conversion action per region. |
+| Secondary dark | `#1f1d1c` fill, `#eeeeee` text, 3px radius | Supporting action, header secondary. |
+| Outline | Transparent, 1px `#3d3a39` border, light text; strong rule on hover | Quiet action where a button improves scanning. |
+| Text/arrow link | Mono label or sans body with a small arrow; orange only on hover/active | In-content navigation and “learn more” paths. |
+
+- Minimum target: 44 × 44px on touch devices.
+- Button labels are specific verbs, not “Submit” where a clearer action is possible.
+- Do not use orange-filled default buttons. Orange marks significance; the light primary button establishes hierarchy.
+
+### Labels, metadata, and status
+- Mono, uppercase, 12px, `0.05em` tracking.
+- Examples: `01 / EVIDENCE REVIEW`, `AVAILABLE FOR MANDATES`, `SEED–SERIES A`.
+- Use thin separators and modest orange markers; no oversized badge clouds.
+
+### Cards and lists
+- Prefer bordered modules or divided rows to floating cards.
+- Keep a card to one thought: label, title, one short description, optional outcome/link.
+- Use three-column service grids only when content is genuinely parallel. On mobile, stack in source order.
+- Pricing-table conventions, dense dashboard cards, and fake KPI counters are out of scope unless future content provides verifiable data.
+
+### Quotes and proof
+- Set the quote large enough to read as a statement, with small mono attribution beneath.
+- Use concrete credentials, publication references, or permissioned client proof. Do not fabricate endorsements, logos, metrics, or timelines.
+
+### Forms
+- Dark transparent fields, 1px `--color-rule` border, 3px radius, 8px × 16px padding.
+- Geist at 14–16px, visible label above each field, helpful error copy below.
+- Focus ring: 2px `--color-accent` with a 2px offset. Never rely only on a border-color shift.
+
+---
+
+## 9. Imagery, diagrams, and data visualization
+
+### Image direction
+- Favor a confident, authentic portrait of Julie, research-adjacent editorial photography, restrained document excerpts, and abstract scientific systems imagery.
+- Apply dark, neutral, high-detail treatment; preserve legibility and humanity.
+- Images sit in lightly bordered frames with 3–6px corners. Avoid stock-lab clichés, neon molecular renders, glossy 3D blobs, and generic “AI” artwork.
+
+### Diagram direction
+- Use process maps, decision trees, evidence pathways, milestone timelines, and simple assay-to-investor narrative diagrams.
+- Grid lines should be quiet. A single orange line/marker can identify the active phase; green can communicate validated/complete.
+- Every diagram needs a text equivalent or caption. Decorative animation must never be the only way to understand a process.
+
+### Metrics
+- Use metrics only with a source, clear unit, scope, and date. For example: publication count, years in relevant roles, or anonymized/permissioned engagement outcomes.
+- Pair number, unit, and interpretation. Do not create a pseudo-live monitoring interface.
+
+---
+
+## 10. Motion and interaction
+
+Factory uses animated product fields, counters, diagrams, and scroll-driven staging to make a system feel active. Julie should use motion to reveal a reasoning path—not to mimic a live application.
+
+- Default transitions: 150–250ms, `cubic-bezier(.4,0,.2,1)`.
+- Use fades, 4–8px translation, divider draws, or sequential process reveals only after the static hierarchy works.
+- No parallax that complicates reading, continuous background animation, aggressive cursor effects, or auto-advancing carousels.
+- Honor `prefers-reduced-motion: reduce`: remove transform motion, counter animation, and ambient animation; preserve final states.
+
+---
+
+## 11. Page architecture
+
+### Homepage
+1. Hero: promise, portrait/proof, one CTA.
+2. Trust band: institutions, companies, roles, or publications only where permissioned and accurate.
+3. Services: the three approved focus areas with a decision/outcome for each.
+4. Approach: a short numbered pathway (e.g. assess → prioritize → articulate → mobilize).
+5. Track record: selected, evidence-led examples or concise biography proof.
+6. Publications / scientific work: title, venue, year, external source.
+7. Final CTA and accessible contact route.
+8. Structured multi-column footer: resources, professional links, legal/contact details.
+
+### Secondary pages
+- Begin with a direct page claim, not a vague banner.
+- Alternate dark canvas and restrained light/paper emphasis only where it improves a decision, form, or long-form reading artifact.
+- Use one “proof” module per page: a quote, credential set, case example, publication, or transparent process detail.
+- End with a clear, context-specific action rather than repeating generic promotional copy.
+
+---
+
+## 12. Accessibility and quality bar
+
+- Meet WCAG 2.2 AA contrast at minimum; verify muted text on dark surfaces before release.
+- Use a semantic landmark structure, one H1 per page, logical H2 hierarchy, lists for parallel items, and descriptive link text.
+- Do not communicate required status through orange/green alone.
+- Ensure all interactions work by keyboard, have visible focus, and meet 44px touch targets where practical.
+- Provide meaningful alt text for portrait and content imagery; empty alt only for truly decorative graphics.
+- Keep texture, animation, and low-contrast rule lines out of the reading path.
+- Test at mobile, tablet, desktop, 200% zoom, keyboard-only, reduced-motion, and high-contrast settings.
+
+---
+
+## 13. Do / don't
 
 ### Do
-- Prioritize Carbon Black (#020202) for primary text and Chalk Gray (#eeeeee) for background, ensuring AAA contrast.
-- Apply Geist font consistently for all UI text, utilizing negative letter-spacing for large headlines (e.g., -0.0480em at 60px) to achieve a condensed, precise appearance.
-- Use Geist Mono for all data callouts, citations, and references at weights 400 and sizes 12-18px for clear distinction.
-- Implement Cool Gray (#b8b3b0) for subtle borders and dividers to maintain visual structure without heavy lines.
-- Reserve Helix Orange (#ef6f2e) strictly for highlighting functional elements like badges and active indicators.
-- Maintain a default border radius of 4px for buttons and form elements, extending to 6px for elevated cards.
-- Ensure consistent vertical spacing of 24px and horizontal elements gaps of 12px or 8px using the base 4px unit.
+- Build hierarchy through contrast, typography, grid alignment, and empty space.
+- Use dark surfaces, fine rules, and mono labels to make information feel deliberate.
+- Make scientific proof, founder decisions, and patient impact concrete.
+- Let the portrait and candid expertise keep the technical system human.
+- Keep orange scarce and meaningful.
 
 ### Don't
-- Avoid using chromatic colors beyond Helix Orange (#ef6f2e) to maintain the stark, professional aesthetic.
-- Do not introduce shadows or complex gradients; rely on color and typography for hierarchy and depth.
-- Do not use generic system fonts; always specify Geist or Geist Mono for design consistency.
-- Avoid excessive padding or large border radii; the design favors a compressed, precise feel.
-- Do not use underlines for links unless on hover, rely on color and context (Carbon Black on light backgrounds).
-- Avoid arbitrary text styling (bolding, italics); rely on the established type scale (Geist, 400 weight) for hierarchy.
-- Do not deviate from the specified negative letter-spacing values, especially for headlines, as it is a core characteristic of the brand's typography.
+- Revert to a light-gray page canvas or a soft “lab elegance” style as the default direction.
+- Copy Factory's name, iconography, live dashboard visual language, customer logos, or product claims.
+- Add rounded pastel cards, glowing gradients, glass panels, oversized pills, or generic biotech DNA decoration.
+- Use unverified KPI charts, testimonials, client logos, or fundraising outcomes.
+- Turn every component into a dark box; use borders and spacing before adding a surface.
 
-## Imagery
+---
 
-The visual language for imagery is primarily functional and scientific, leaning heavily on abstract conceptual graphics, process diagrams, and data visualizations. Visuals are contained within precise, slightly rounded frames, often featuring stylized infographics rather than raw screenshots. Graphics are typically monochromatic or use a limited palette, often employing subtle dot patterns and stark lines. There's an absence of photography or human elements, focusing instead on the methodologies and insights of biotech consulting. Imagery serves an explanatory role, illustrating processes or abstracting complex scientific ideas, with a high density relative to other pure UI sites.
-
-## Layout
-
-The page structure employs a full-width layout with a primary content area constrained by a clear maximum width, centered on the screen. The hero section is a split two-column design: text-dominant on the left with a headline and descriptive copy, and abstract visuals on the right, punctuated by subtle molecular patterns. Sections generally follow a consistent vertical rhythm, often alternating between text-heavy content and content paired with infographics or data visualizations, typically in a two-column arrangement (text left, image right, or vice versa). There are occasional three-column card grids for presenting services or case studies. The navigation is a persistent top bar, clean and functional, with a clear separation of branding and menu items. The layout emphasizes clarity and content organization, feeling spacious yet structured.
-
-## Agent Prompt Guide
-
-### Quick Color Reference
-- **Text Primary:** #020202
-- **Page Background:** #eeeeee
-- **Card Background:** #fafafa
-- **Border/Divider:** #b8b3b0
-- **Accent:** #ef6f2e
-
-### Example Component Prompts
-1. **Create a Hero Section:** Set page background to Chalk Gray (#eeeeee). Left half: headline 'Strategic Consulting for Early-Stage Biotech' in Geist, 60px, weight 400, letter-spacing -0.0480em, color Carbon Black (#020202). Subheading 'From pre-clinical strategy to investor-ready narratives — partnering with founders to accelerate the path from bench to bedside.' in Geist, 18px, weight 400, color Graphite (#3d3a39). Right half: an abstract graphic with subtle molecular dot patterns.
-2. **Generate an Outlined Button:** Label 'Download Case Study'. Use transparent background, Carbon Black (#020202) text, Cool Gray (#b8b3b0) 1px border. Padding top/bottom 0px, left/right 12px. Border radius 4px. Font Geist, 16px, weight 400.
-3. **Design a Data Callout Block:** Use background Chalk Gray (#eeeeee), no border, 6px border-radius. Inside, display a key metric or reference in Geist Mono, 16px, weight 400, letter-spacing -0.0200em, color Carbon Black (#020202). Add a copy icon next to it.
-4. **Create an Elevated Content Card:** Use background Faded Silver (#fafafa), no box-shadow, 6px border-radius. Padding 16px top/bottom, 0px left/right. Insert a highlight badge next to a section title. The badge should be text 'NEW' in Geist Mono, 12px, weight 400, color Helix Orange (#ef6f2e).
-5. **Build a Navigation Bar:** Use background Chalk Gray (#eeeeee) with no border. Nav links like 'Services', 'About', 'Case Studies' use Geist, 14px, weight 400, color Carbon Black (#020202). Include 'Contact' button as a Filled Button (Dark) variant and 'Book a Consultation' as an Outlined Button.
-
-## Experience & Mission
-
-- **INSERM** — France's national institute of health and medical research. Deep expertise in public-sector biomedical research and translational science.
-- **Champalimaud Research Centre** — World-class neuroscience and oncology research facility. Experience in rigorous, curiosity-driven scientific environments.
-- **LiMM Therapeutics** — Early-stage biotech focusing on innovative therapeutic approaches. Hands-on experience navigating the challenges of company creation and scientific strategy.
-- **iTeos Therapeutics** — Clinical-stage immuno-oncology company. Exposure to the transition from pre-clinical discovery to clinical development.
-- **Cantoni Therapeutics** — Early-stage therapeutic venture. Direct understanding of the operational and strategic needs of nascent biotech companies.
-- **Silengenics** — Biotech venture in gene silencing technologies. Familiarity with cutting-edge platform technologies and their path to validation.
-
-> **Consulting Focus:** Julie Chesne partners with early-stage biotech startups to strengthen their pre-clinical development strategy, shape compelling scientific narratives, and prepare investor-ready documentation for seed and Series A fundraising rounds.
-
-## Quick Start
-
-### CSS Custom Properties
+## 14. CSS token starter block
 
 ```css
 :root {
-  /* Colors */
-  --color-carbon-black: #020202;
-  --color-chalk-gray: #eeeeee;
-  --color-faded-silver: #fafafa;
-  --color-cool-gray: #b8b3b0;
-  --color-graphite: #3d3a39;
-  --color-ash-gray: #a49d9a;
-  --color-helix-orange: #ef6f2e;
+  /* Color */
+  --color-canvas: #020202;
+  --color-surface: #101010;
+  --color-raised: #1f1d1c;
+  --color-rule: #3d3a39;
+  --color-rule-strong: #4d4947;
+  --color-muted: #8a8380;
+  --color-soft: #a49d9a;
+  --color-silver: #b8b3b0;
+  --color-illustration-light: #ccc9c7;
+  --color-illustration-pale: #d6d3d2;
+  --color-text: #eeeeee;
+  --color-text-strong: #fafafa;
+  --color-accent: #ef6f2e;
+  --color-accent-hover: #ee6018;
+  --color-accent-deep: #d15010;
 
-  /* Typography — Font Families */
-  --font-geist: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-geist-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  /* Typography — Scale */
-  --text-caption: 12px;
-  --leading-caption: 1.5;
-  --tracking-caption: -0.24px;
-  --text-body-sm: 14px;
-  --leading-body-sm: 1.5;
-  --text-body: 16px;
-  --leading-body: 1.5;
-  --text-subheading: 18px;
-  --leading-subheading: 1.2;
-  --text-heading: 24px;
-  --leading-heading: 1.2;
-  --text-heading-lg: 48px;
-  --leading-heading-lg: 1.2;
-  --tracking-heading-lg: -2.3px;
-  --text-display: 60px;
-  --leading-display: 1;
-  --tracking-display: -2.88px;
-
-  /* Typography — Weights */
-  --font-weight-regular: 400;
-
-  /* Spacing */
-  --spacing-unit: 4px;
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-36: 36px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-56: 56px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-120: 120px;
+  /* Type */
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --tracking-display: -0.04em;
+  --tracking-section: -0.031em;
+  --tracking-meta: 0.05em;
 
   /* Layout */
-  --section-gap: 72px;
-  --card-padding: 16px;
-  --element-gap: 4px;
-
-  /* Border Radius */
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-
-  /* Named Radii */
-  --radius-cards: 6px;
-  --radius-header: 0px;
-  --radius-buttons: 4px;
-  --radius-default: 4px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --radius-control: 3px;
+  --radius-module: 4px;
+  --page-gutter: clamp(16px, 2.5vw, 36px);
+  --grid-gap: clamp(16px, 1.67vw, 24px);
+  --content-max: 1920px;
 }
 ```
 
-### Tailwind v4
+---
 
-```css
-@theme {
-  /* Colors */
-  --color-carbon-black: #020202;
-  --color-chalk-gray: #eeeeee;
-  --color-faded-silver: #fafafa;
-  --color-cool-gray: #b8b3b0;
-  --color-graphite: #3d3a39;
-  --color-ash-gray: #a49d9a;
-  --color-helix-orange: #ef6f2e;
+## 15. Implementation checklist
 
-  /* Typography */
-  --font-geist: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-geist-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  /* Typography — Scale */
-  --text-caption: 12px;
-  --leading-caption: 1.5;
-  --tracking-caption: -0.24px;
-  --text-body-sm: 14px;
-  --leading-body-sm: 1.5;
-  --text-body: 16px;
-  --leading-body: 1.5;
-  --text-subheading: 18px;
-  --leading-subheading: 1.2;
-  --text-heading: 24px;
-  --leading-heading: 1.2;
-  --text-heading-lg: 48px;
-  --leading-heading-lg: 1.2;
-  --tracking-heading-lg: -2.3px;
-  --text-display: 60px;
-  --leading-display: 1;
-  --tracking-display: -2.88px;
-
-  /* Spacing */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-36: 36px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-56: 56px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-120: 120px;
-
-  /* Border Radius */
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-}
-```
+- [ ] Switch global canvas/text tokens to the dark system; remove light-gray page-background assumptions.
+- [ ] Load Geist and Geist Mono with robust fallbacks and font-display behavior.
+- [ ] Establish the responsive 4 / 8 / 12-column layout primitives and container maximum.
+- [ ] Rebuild header/navigation with mono metadata styling and one clear CTA.
+- [ ] Rework hero around the dark technical composition while retaining Julie's authentic portrait and consultancy-specific proof.
+- [ ] Build a real services section for Pre-clinical strategy, Investor-ready narrative, and Translational roadmap.
+- [ ] Add only permissioned, sourced proof (institutions, publications, client examples, quotes, metrics).
+- [ ] Create accessible, real destinations for Track Record, Publications, and contact before surfacing prominent navigation.
+- [ ] Add motion only after the static visual system, keyboard behavior, and reduced-motion experience are complete.
+- [ ] Audit contrast, focus states, responsive behavior, and content truthfulness before launch.

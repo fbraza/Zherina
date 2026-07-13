@@ -1,141 +1,80 @@
----
-const focusAreas = [
-    "Pre-clinical strategy",
-    "Investor-ready narrative",
-    "Translational roadmap",
-];
----
-
-<section
-    class="px-6 py-14 md:px-12 md:py-16 lg:flex lg:min-h-[calc(100svh-89px)] lg:items-center"
->
+<section class="px-4 py-16 md:px-9 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
     <div
-        class="mx-auto grid w-full max-w-[1680px] grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(400px,460px)] xl:gap-16"
+        class="mx-auto grid w-full max-w-[1920px] grid-cols-1 gap-12 lg:grid-cols-[minmax(0,44fr)_minmax(0,56fr)] lg:items-center lg:gap-12"
     >
-        <!-- Left column — text -->
-        <div class="flex flex-col">
-            <!-- Label -->
-            <span
-                class="font-mono text-body leading-body tracking-widest text-helix-orange uppercase"
-            >
-                Consulting
-            </span>
-
-            <!-- Headline — exactly two lines on desktop -->
+        <div class="lg:translate-y-[20px] lg:pt-24">
             <h1
-                class="mt-5 font-sans font-medium text-carbon-black leading-[1.05] tracking-[-0.03em]"
-                style="font-size: clamp(2.75rem, 5vw, 5.25rem);"
+                class="max-w-[11ch] font-sans text-[clamp(3rem,5vw,4.5rem)] leading-none tracking-[-0.04em] text-text"
             >
-                <span class="block lg:whitespace-nowrap"
-                    >Strategic Consulting</span
-                >
-                <span class="block lg:whitespace-nowrap"
-                    >for Early-Stage Biotech</span
-                >
+                Turn Science <span class="block">Into Strategy</span>
             </h1>
 
-            <!-- Quote block -->
-            <blockquote
-                class="mt-10 max-w-[76ch] border-l-2 border-helix-orange/60 pl-5"
-            >
+            <div class="mt-6 max-w-[58ch]">
                 <p
-                    class="font-mono text-[clamp(18px,1.25vw,22px)] leading-[1.6] tracking-[-0.01em] text-graphite font-[400]"
+                    class="font-mono text-[16px] leading-[1.5] tracking-[-0.01em] text-muted"
                 >
                     I love to partner with founders to accelerate the path from
                     bench to market. I will dive into your research and
                     pre-clinical strategy to build investor-ready narratives. I
                     am passionate about science and want it to reach patients.
                 </p>
-                <footer
-                    class="mt-[14px] font-mono text-[13px] leading-none text-ash-gray tracking-wide"
-                >
+                <p class="mt-4 font-mono text-[13px] leading-none tracking-[0.02em] text-soft">
                     Let's build together.
-                </footer>
-            </blockquote>
-
-            <!-- CTA row -->
-            <div class="mt-8 flex items-center gap-3 flex-wrap">
-                <a
-                    href="#contact"
-                    class="inline-flex items-center justify-center rounded-[var(--radius-buttons)] bg-carbon-black px-4 py-2 font-mono text-[13px] leading-none text-chalk-gray no-underline transition-colors duration-150 hover:bg-graphite"
-                >
-                    Book a strategy call
-                </a>
-                <a
-                    href="#track-record"
-                    class="inline-flex items-center justify-center rounded-[var(--radius-buttons)] border border-cool-gray px-4 py-2 font-mono text-[13px] leading-none text-[#4C4947] no-underline transition-all duration-150 hover:border-carbon-black hover:text-carbon-black"
-                >
-                    View track record
-                </a>
-                <span
-                    class="inline-flex items-center gap-1.5
-          border border-cool-gray/60 text-[#4C4947]
-          text-[13px] font-mono leading-none
-          px-3 py-2
-          rounded-full"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path
-                            d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                        ></path><circle cx="12" cy="10" r="3"></circle></svg
-                    >
-                    Based in Belgium
-                </span>
+                </p>
             </div>
 
-            <!-- Focus areas -->
-            <div class="mt-10 grid max-w-[900px] gap-3 sm:grid-cols-3">
-                {
-                    focusAreas.map((area, index) => (
-                        <div class="border-t border-cool-gray/50 pt-3">
-                            <span class="font-mono text-[11px] leading-none tracking-widest text-helix-orange">
-                                0{index + 1}
-                            </span>
-                            <p class="mt-2 font-mono text-[13px] leading-[1.35] tracking-[-0.01em] text-graphite">
-                                {area}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
+            <a
+                href="#contact"
+                class="hero-cta group mt-10 inline-flex min-h-11 items-center gap-3 border border-rule bg-raised px-4 font-mono text-[12px] leading-none tracking-[0.05em] text-text no-underline uppercase"
+            >
+                Book a strategy call <span aria-hidden="true">→</span>
+            </a>
         </div>
 
-        <!-- Right column — photo -->
-        <div class="hidden lg:flex flex-col items-end">
-            <div class="w-full max-w-none">
-                <!-- Portrait with subtle border -->
-                <div
-                    class="border border-cool-gray/40 rounded-[var(--radius-lg)] overflow-hidden"
-                >
-                    <img
-                        src="/Julie.png"
-                        alt="Julie Chesne"
-                        class="w-full h-auto object-cover block"
-                        loading="eager"
-                    />
-                </div>
-
-                <!-- Status line -->
-                <div class="mt-3 flex items-center gap-2">
-                    <span
-                        class="inline-block h-2 w-2 rounded-full bg-emerald-500"
-                    ></span>
-                    <span
-                        class="font-mono text-[12px] leading-none text-[#4C4947] tracking-wide"
-                    >
-                        Available for mandates
-                    </span>
-                </div>
+        <div
+            class="flex flex-col overflow-hidden rounded-[4px] border border-rule bg-canvas lg:aspect-[4/3]"
+            aria-label="Empty workspace window"
+            role="img"
+        >
+            <div class="flex h-11 items-center gap-1.5 border-b border-rule bg-surface px-4">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
             </div>
+            <div class="min-h-[320px] flex-1 bg-canvas lg:min-h-0"></div>
         </div>
     </div>
 </section>
+
+<style>
+    .hero-cta {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-cta::before {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        content: "";
+        opacity: 0;
+        background: repeating-linear-gradient(
+            45deg,
+            transparent 0 2px,
+            #4d4947 2px 3px,
+            transparent 3px 5px
+        );
+        background-size: 7px 7px;
+        transition: opacity 150ms ease-out;
+    }
+
+    .hero-cta:hover::before,
+    .hero-cta:focus-visible::before {
+        opacity: 0.45;
+    }
+
+    .hero-cta > * {
+        position: relative;
+        z-index: 1;
+    }
+</style>

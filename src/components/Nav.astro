@@ -1,69 +1,53 @@
 ---
+import logoUrl from "../../assets/logo_white.svg?url";
+
 const links = [
-  { href: "#track-record", label: "Track Record" },
-  { href: "#publications", label: "Publications" },
+    { href: "#track-record", label: "Track Record" },
+    { href: "#publications", label: "Publications" },
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-cool-gray/40 bg-chalk-gray">
-  <nav class="mx-auto flex max-w-[1680px] items-center justify-between px-6 py-5 md:px-12">
-    <a
-      href="#"
-      class="text-body leading-body tracking-heading text-carbon-black no-underline font-medium"
-      aria-label="Julie Chesne — top"
+<header class="sticky top-0 z-50 bg-canvas/90 backdrop-blur-sm">
+    <nav
+        class="mx-auto flex h-[64px] max-w-[1920px] items-center justify-between px-4 md:h-[72px] md:px-9"
+        aria-label="Main navigation"
     >
-      Julie Chesne
-    </a>
-
-    <ul class="group flex items-center gap-10">
-      {links.map(({ href, label }) => (
-        <li>
-          <a
-            href={href}
-            class="nav-link text-body-sm leading-body-sm text-[#4C4947] no-underline transition-colors duration-150 group-hover:text-[#8D8B8A] hover:text-[#ED722E]"
-          >
-            {label}
-          </a>
-        </li>
-      ))}
-      <li class="ml-4">
         <a
-          href="#contact"
-          class="
-            border border-cool-gray
-            text-body-sm leading-body-sm text-[#4C4947]
-            no-underline
-            px-3 py-1
-            rounded-[var(--radius-buttons)]
-            transition-all duration-150
-            hover:bg-carbon-black hover:border-carbon-black hover:text-chalk-gray
-          "
+            href="#"
+            class="flex items-center gap-2.5 text-text no-underline"
+            aria-label="Koios — top"
         >
-          Book a call
+            <span class="relative block h-7 w-7 overflow-hidden" aria-hidden="true">
+                <img
+                    src={logoUrl}
+                    alt=""
+                    class="absolute w-16 max-w-none -translate-x-[14px] -translate-y-[18px]"
+                />
+            </span>
+            <span class="text-[22px] font-medium leading-none tracking-[0.08em] uppercase md:text-[26px]">
+                Koios
+            </span>
         </a>
-      </li>
-    </ul>
-  </nav>
+
+        <ul class="flex items-center gap-5 md:gap-8">
+            {links.map(({ href, label }) => (
+                <li class="hidden sm:list-item">
+                    <a
+                        href={href}
+                        class="font-mono text-[11px] leading-none tracking-[0.05em] text-text no-underline uppercase transition-colors duration-150 hover:text-accent md:text-[12px]"
+                    >
+                        {label}
+                    </a>
+                </li>
+            ))}
+            <li class="ml-1 md:ml-2">
+                <a
+                    href="#contact"
+                    class="inline-flex min-h-8 items-center border border-transparent bg-text-strong px-3 font-mono text-[11px] leading-none tracking-[0.05em] text-canvas no-underline uppercase transition-colors duration-150 hover:bg-text md:px-4 md:text-[12px]"
+                >
+                    Book a call
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
-
-<style>
-  .nav-link {
-    position: relative;
-    padding-bottom: 2px;
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background-color: #ed722e;
-    transition: width 200ms ease-out;
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
-  }
-</style>
