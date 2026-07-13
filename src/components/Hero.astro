@@ -1,6 +1,23 @@
-<section class="px-4 py-16 md:px-9 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
+<section class="relative isolate overflow-hidden px-4 py-16 md:px-9 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
     <div
-        class="mx-auto grid w-full max-w-[1920px] grid-cols-1 gap-12 lg:grid-cols-[minmax(0,44fr)_minmax(0,56fr)] lg:items-center lg:gap-12"
+        class="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style="background: radial-gradient(ellipse 90% 82% at 48% 36%, #171615 0%, #0c0c0c 54%, #020202 100%);"
+    ></div>
+    <div
+        data-hero-texture
+        class="pointer-events-none absolute inset-0 opacity-[0.05]"
+        aria-hidden="true"
+        style="background-image: radial-gradient(circle, rgba(255,255,255,.6) 0, rgba(255,255,255,.6) .7px, transparent .95px), repeating-linear-gradient(rgba(255,255,255,.18) 0 1px, transparent 1px 4px); background-size: 5px 5px, 100% 4px;"
+    ></div>
+    <div
+        class="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style="background: radial-gradient(transparent 0%, transparent 38%, rgba(0,0,0,.55) 100%);"
+    ></div>
+
+    <div
+        class="relative z-10 mx-auto grid w-full max-w-[1920px] grid-cols-1 gap-12 lg:grid-cols-[minmax(0,44fr)_minmax(0,56fr)] lg:items-center lg:gap-12"
     >
         <div class="lg:translate-y-[20px] lg:pt-24">
             <h1
