@@ -1,0 +1,141 @@
+---
+const focusAreas = [
+    "Pre-clinical strategy",
+    "Investor-ready narrative",
+    "Translational roadmap",
+];
+---
+
+<section
+    class="px-6 py-14 md:px-12 md:py-16 lg:flex lg:min-h-[calc(100svh-89px)] lg:items-center"
+>
+    <div
+        class="mx-auto grid w-full max-w-[1680px] grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,420px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(400px,460px)] xl:gap-16"
+    >
+        <!-- Left column — text -->
+        <div class="flex flex-col">
+            <!-- Label -->
+            <span
+                class="font-mono text-body leading-body tracking-widest text-helix-orange uppercase"
+            >
+                Consulting
+            </span>
+
+            <!-- Headline — exactly two lines on desktop -->
+            <h1
+                class="mt-5 font-sans font-medium text-carbon-black leading-[1.05] tracking-[-0.03em]"
+                style="font-size: clamp(2.75rem, 5vw, 5.25rem);"
+            >
+                <span class="block lg:whitespace-nowrap"
+                    >Strategic Consulting</span
+                >
+                <span class="block lg:whitespace-nowrap"
+                    >for Early-Stage Biotech</span
+                >
+            </h1>
+
+            <!-- Quote block -->
+            <blockquote
+                class="mt-10 max-w-[76ch] border-l-2 border-helix-orange/60 pl-5"
+            >
+                <p
+                    class="font-mono text-[clamp(18px,1.25vw,22px)] leading-[1.6] tracking-[-0.01em] text-graphite font-[400]"
+                >
+                    I love to partner with founders to accelerate the path from
+                    bench to market. I will dive into your research and
+                    pre-clinical strategy to build investor-ready narratives. I
+                    am passionate about science and want it to reach patients.
+                </p>
+                <footer
+                    class="mt-[14px] font-mono text-[13px] leading-none text-ash-gray tracking-wide"
+                >
+                    Let's build together.
+                </footer>
+            </blockquote>
+
+            <!-- CTA row -->
+            <div class="mt-8 flex items-center gap-3 flex-wrap">
+                <a
+                    href="#contact"
+                    class="inline-flex items-center justify-center rounded-[var(--radius-buttons)] bg-carbon-black px-4 py-2 font-mono text-[13px] leading-none text-chalk-gray no-underline transition-colors duration-150 hover:bg-graphite"
+                >
+                    Book a strategy call
+                </a>
+                <a
+                    href="#track-record"
+                    class="inline-flex items-center justify-center rounded-[var(--radius-buttons)] border border-cool-gray px-4 py-2 font-mono text-[13px] leading-none text-[#4C4947] no-underline transition-all duration-150 hover:border-carbon-black hover:text-carbon-black"
+                >
+                    View track record
+                </a>
+                <span
+                    class="inline-flex items-center gap-1.5
+          border border-cool-gray/60 text-[#4C4947]
+          text-[13px] font-mono leading-none
+          px-3 py-2
+          rounded-full"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path
+                            d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                        ></path><circle cx="12" cy="10" r="3"></circle></svg
+                    >
+                    Based in Belgium
+                </span>
+            </div>
+
+            <!-- Focus areas -->
+            <div class="mt-10 grid max-w-[900px] gap-3 sm:grid-cols-3">
+                {
+                    focusAreas.map((area, index) => (
+                        <div class="border-t border-cool-gray/50 pt-3">
+                            <span class="font-mono text-[11px] leading-none tracking-widest text-helix-orange">
+                                0{index + 1}
+                            </span>
+                            <p class="mt-2 font-mono text-[13px] leading-[1.35] tracking-[-0.01em] text-graphite">
+                                {area}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <!-- Right column — photo -->
+        <div class="hidden lg:flex flex-col items-end">
+            <div class="w-full max-w-none">
+                <!-- Portrait with subtle border -->
+                <div
+                    class="border border-cool-gray/40 rounded-[var(--radius-lg)] overflow-hidden"
+                >
+                    <img
+                        src="/Julie.png"
+                        alt="Julie Chesne"
+                        class="w-full h-auto object-cover block"
+                        loading="eager"
+                    />
+                </div>
+
+                <!-- Status line -->
+                <div class="mt-3 flex items-center gap-2">
+                    <span
+                        class="inline-block h-2 w-2 rounded-full bg-emerald-500"
+                    ></span>
+                    <span
+                        class="font-mono text-[12px] leading-none text-[#4C4947] tracking-wide"
+                    >
+                        Available for mandates
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
