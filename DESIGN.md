@@ -59,9 +59,10 @@ Julie Chesne partners with early-stage biotech founders to sharpen pre-clinical 
 | “Book a strategy call” | “Let’s disrupt biotech together.” |
 
 ### Approved service names
-- **Pre-clinical strategy**
-- **Investor-ready narrative**
-- **Translational roadmap**
+- **Pre-clinical strategy** -> design experiments (in vivo, in vitro), analyse your data, manage scientists to support IND enabling studies
+- **Investor-ready narrative** -> grant writing (NIH, MSCA), due diligence report, slides for internal & external presentation, scientific advisory board
+- **Translational roadmap** -> identify key experiment to move from pre-clinical to clinical, biomarkers research,
+- **Find a last one** ->
 
 ---
 

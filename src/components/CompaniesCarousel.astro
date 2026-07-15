@@ -1,0 +1,134 @@
+---
+import institutGrey from "../../assets/companies/INSTITUT_DU_THORAX_GREY.png";
+import institutWhite from "../../assets/companies/INSTITUT_DU_THORAX_WHITE.png";
+import champalimaudGrey from "../../assets/companies/CHAMPALIMAUD_GREY.png";
+import champalimaudWhite from "../../assets/companies/CHAMPALIMAUD_WHITE.png";
+import limmGrey from "../../assets/companies/LIMM_GREY.png";
+import limmWhite from "../../assets/companies/LIMM_WHITE.png";
+import iteosGrey from "../../assets/companies/ITEOS_GREY.png";
+import iteosWhite from "../../assets/companies/ITEOS_WHITE.png";
+import cantoniGrey from "../../assets/companies/CANTONI_GREY.png";
+import cantoniWhite from "../../assets/companies/CANTONI_WHITE.png";
+import silengenicsGrey from "../../assets/companies/SILENGENICS_GREY.png";
+import silengenicsWhite from "../../assets/companies/SILENGENICS_WHITE.png";
+import biminiGrey from "../../assets/companies/BIMINI_GREY.png";
+import biminiWhite from "../../assets/companies/BIMINI_WHITE.png";
+
+const companies = [
+    { name: "Institut du Thorax", grey: institutGrey, white: institutWhite, scale: 0.84 },
+    { name: "Champalimaud", grey: champalimaudGrey, white: champalimaudWhite, scale: 1 },
+    { name: "LiMM Therapeutics", grey: limmGrey, white: limmWhite, scale: 2 },
+    { name: "iTeos", grey: iteosGrey, white: iteosWhite, scale: 0.88 },
+    { name: "Cantoni", grey: cantoniGrey, white: cantoniWhite, scale: 1.3 },
+    { name: "Silengenics", grey: silengenicsGrey, white: silengenicsWhite, scale: 2.08 },
+    { name: "Bimini", grey: biminiGrey, white: biminiWhite, scale: 1.3 },
+];
+
+---
+
+<section class="companies-carousel bg-canvas py-16 lg:py-24" aria-label="Companies">
+    <p class="mb-8 text-center text-sm font-medium text-silver">Trusted by</p>
+
+    <div class="companies-viewport">
+        <div class="companies-track">
+            {[0, 1].map((setIndex) => (
+                <div class="companies-set">
+                    {companies.map((company) => {
+                        const exposed = setIndex === 0;
+
+                        return (
+                            <div
+                                class="company-logo"
+                                aria-hidden={exposed ? undefined : "true"}
+                                aria-label={exposed ? company.name : undefined}
+                                role={exposed ? "img" : undefined}
+                                tabindex={exposed ? 0 : -1}
+                                style={`--logo-scale: ${company.scale}`}
+                            >
+                                <img class="company-logo-grey" src={company.grey.src} alt="" />
+                                <img class="company-logo-white" src={company.white.src} alt="" />
+                            </div>
+                        );
+                    })}
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style is:global>
+    .companies-viewport {
+        overflow: hidden;
+    }
+
+    .companies-track,
+    .companies-set {
+        display: flex;
+        width: max-content;
+    }
+
+    .companies-track {
+        will-change: transform;
+        animation: companies-marquee 87s linear infinite;
+    }
+
+    .company-logo {
+        position: relative;
+        display: grid;
+        flex: 0 0 clamp(180px, 22vw, 300px);
+        width: clamp(180px, 22vw, 300px);
+        height: 72px;
+        place-items: center;
+        outline: none;
+    }
+
+    .company-logo img {
+        position: absolute;
+        max-width: 220px;
+        max-height: 64px;
+        object-fit: contain;
+        transform: scale(var(--logo-scale));
+        transition: opacity 200ms ease;
+    }
+
+    .company-logo-grey {
+        opacity: 1;
+    }
+
+    .company-logo-white {
+        opacity: 0;
+    }
+
+    .company-logo:hover .company-logo-grey,
+    .company-logo:focus .company-logo-grey {
+        opacity: 0;
+    }
+
+    .company-logo:hover .company-logo-white,
+    .company-logo:focus .company-logo-white {
+        opacity: 1;
+    }
+
+    .company-logo:focus-visible {
+        outline: 1px solid var(--color-text);
+        outline-offset: -8px;
+    }
+
+    @keyframes companies-marquee {
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .companies-track {
+            animation-duration: 52s;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .companies-track {
+            animation: none;
+        }
+    }
+</style>
