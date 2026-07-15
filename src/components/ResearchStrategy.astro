@@ -1,0 +1,24 @@
+---
+const steps = ["01", "02", "03"];
+---
+
+<section
+    class="mx-auto my-20 w-full max-w-[1920px] bg-canvas px-4 md:px-9 lg:mt-20 lg:mb-30"
+    aria-labelledby="research-strategy-title"
+>
+    <h2
+        id="research-strategy-title"
+        class="max-w-[760px] font-sans text-[34px] leading-[1.12] tracking-[-0.045rem] text-text lg:max-w-none lg:whitespace-nowrap lg:text-[44px] lg:tracking-[-0.07rem]"
+    >
+        Defining your research strategy
+    </h2>
+
+    <div class="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-3">
+        {steps.map((step) => (
+            <article class="min-h-[493px] rounded-lg border border-rule bg-surface p-8">
+                <p class="font-mono text-[13px] text-accent">{step}</p>
+                <h3 class="mt-1 font-sans text-[20px] font-medium text-text">TODO</h3>
+            </article>
+        ))}
+    </div>
+</section>
