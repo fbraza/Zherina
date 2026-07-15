@@ -59,6 +59,7 @@ import heroVideo from "../../assets/videos/04_hero.mp4?url";
                 <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
             </div>
             <video
+                data-hero-video
                 class="min-h-[320px] w-full flex-1 bg-canvas object-contain lg:min-h-0"
                 autoplay
                 preload="auto"
@@ -72,6 +73,10 @@ import heroVideo from "../../assets/videos/04_hero.mp4?url";
         </div>
     </div>
 </section>
+
+<script>
+    document.querySelector<HTMLVideoElement>("[data-hero-video]")!.playbackRate = 0.75;
+</script>
 
 <style>
     .hero-cta {
