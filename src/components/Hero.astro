@@ -1,8 +1,4 @@
----
-import heroVideo from "../../assets/videos/04_hero.mp4?url";
----
-
-<section class="relative isolate overflow-hidden px-4 py-16 md:px-9 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
+<section class="relative isolate overflow-hidden px-4 py-12 md:px-9 md:py-16 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
     <div
         class="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -21,9 +17,9 @@ import heroVideo from "../../assets/videos/04_hero.mp4?url";
     ></div>
 
     <div
-        class="relative z-10 mx-auto grid w-full max-w-[1920px] grid-cols-1 gap-12 lg:grid-cols-[minmax(0,44fr)_minmax(0,56fr)] lg:items-center lg:gap-12"
+        class="relative z-10 mx-auto grid w-full max-w-[1920px] grid-cols-1 gap-10 lg:grid-cols-[minmax(0,48fr)_minmax(0,52fr)] lg:items-center lg:gap-16"
     >
-        <div class="lg:translate-y-[20px] lg:pt-24">
+        <div class="lg:translate-y-[20px] lg:pt-20">
             <h1
                 class="max-w-[11ch] font-sans text-[clamp(3rem,5vw,4.5rem)] leading-none tracking-[-0.04em] text-text"
             >
@@ -52,31 +48,54 @@ import heroVideo from "../../assets/videos/04_hero.mp4?url";
             </a>
         </div>
 
-        <div class="flex flex-col overflow-hidden rounded-[4px] border border-rule bg-canvas lg:aspect-[4/3]">
-            <div class="flex h-11 items-center gap-1.5 border-b border-rule bg-surface px-4">
-                <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
+        <aside
+            class="grid min-h-[272px] grid-cols-[43%_57%] overflow-hidden rounded-[4px] border border-rule bg-surface sm:min-h-[340px] sm:grid-cols-[48%_52%] lg:aspect-[5/4] lg:min-h-0 lg:grid-cols-[56%_44%]"
+            aria-label="Julie Chesne consulting expertise"
+        >
+            <div class="relative min-h-0 overflow-hidden bg-raised">
+                <img
+                    src="/Julie.png"
+                    alt="Portrait of Julie Chesne"
+                    class="absolute inset-0 h-full w-full object-cover object-[50%_28%] grayscale-[18%] contrast-[1.04] saturate-[0.85]"
+                    width="1195"
+                    height="1316"
+                    loading="eager"
+                    fetchpriority="high"
+                />
+                <div
+                    class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_62%,rgba(2,2,2,0.72)_100%)]"
+                    aria-hidden="true"
+                ></div>
+                <p class="absolute right-3 bottom-3 left-3 font-mono text-[10px] leading-[1.35] tracking-[0.05em] text-text uppercase sm:right-4 sm:bottom-4 sm:left-4 sm:text-[11px]">
+                    Julie Chesne<br />Biotech consultant
+                </p>
             </div>
-            <video
-                data-hero-video
-                class="min-h-[320px] w-full flex-1 bg-canvas object-contain lg:min-h-0"
-                autoplay
-                preload="auto"
-                muted
-                loop
-                playsinline
-                aria-label="Pre-clinical research strategy visualisation"
-            >
-                <source src={heroVideo} type="video/mp4" />
-            </video>
-        </div>
+
+            <div class="flex min-w-0 flex-col p-4 sm:p-6 lg:p-7">
+                <div class="flex items-center gap-2 font-mono text-[10px] leading-none tracking-[0.05em] text-soft uppercase sm:text-[11px]">
+                    <span class="h-1.5 w-1.5 bg-accent" aria-hidden="true"></span>
+                    Consulting focus
+                </div>
+
+                <p class="mt-4 max-w-[25ch] text-[14px] leading-[1.35] tracking-[-0.01em] text-text sm:mt-6 sm:text-[16px]">
+                    Advancing therapeutic programs toward first-in-human studies.
+                </p>
+
+                <ul class="mt-auto divide-y divide-rule border-y border-rule">
+                    <li class="py-3 font-mono text-[10px] leading-[1.35] tracking-[0.02em] text-silver sm:py-4 sm:text-[12px]">
+                        Pre-clinical strategy
+                    </li>
+                    <li class="py-3 font-mono text-[10px] leading-[1.35] tracking-[0.02em] text-silver sm:py-4 sm:text-[12px]">
+                        Translational roadmap
+                    </li>
+                    <li class="py-3 font-mono text-[10px] leading-[1.35] tracking-[0.02em] text-silver sm:py-4 sm:text-[12px]">
+                        Investor-ready scientific narrative
+                    </li>
+                </ul>
+            </div>
+        </aside>
     </div>
 </section>
-
-<script>
-    document.querySelector<HTMLVideoElement>("[data-hero-video]")!.playbackRate = 0.75;
-</script>
 
 <style>
     .hero-cta {
