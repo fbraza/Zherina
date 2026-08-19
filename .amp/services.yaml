@@ -1,0 +1,8 @@
+services:
+  website:
+    command: npm run dev -- --host 0.0.0.0 --port "$PORT" --allowed-hosts
+    port: 4321
+    health: /
+    portal:
+      title: Zhirena website
+      description: Astro development server for review and iteration.

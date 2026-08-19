@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+required_node_version="22.19.0"
+
+node_is_compatible() {
+  command -v node >/dev/null 2>&1 &&
+    node -e 'const [major, minor] = process.versions.node.split(".").map(Number); process.exit(major > 22 || (major === 22 && minor >= 19) ? 0 : 1)'
+}
+
+if ! node_is_compatible; then
+  case "$(uname -m)" in
+    x86_64) node_arch="x64" ;;
+    aarch64|arm64) node_arch="arm64" ;;
+    *) echo "Unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+  esac
+
+  node_dir="$HOME/.local/share/node-v${required_node_version}-linux-${node_arch}"
+  if [[ ! -x "$node_dir/bin/node" ]]; then
+    archive="node-v${required_node_version}-linux-${node_arch}.tar.xz"
+    download_dir="$(mktemp -d)"
+    trap 'rm -rf "$download_dir"' EXIT
+
+    echo "Installing Node.js ${required_node_version}..."
+    curl --fail --location --silent --show-error \
+      "https://nodejs.org/dist/v${required_node_version}/${archive}" \
+      --output "$download_dir/$archive"
+    curl --fail --location --silent --show-error \
+      "https://nodejs.org/dist/v${required_node_version}/SHASUMS256.txt" \
+      --output "$download_dir/SHASUMS256.txt"
+    (
+      cd "$download_dir"
+      grep "  ${archive}$" SHASUMS256.txt | sha256sum --check --status
+    )
+    mkdir -p "$(dirname "$node_dir")"
+    tar -xJf "$download_dir/$archive" -C "$(dirname "$node_dir")"
+  fi
+
+  mkdir -p "$HOME/.local/bin"
+  for executable in node npm npx corepack; do
+    ln -sfn "$node_dir/bin/$executable" "$HOME/.local/bin/$executable"
+  done
+  hash -r
+fi
+
+echo "Installing npm dependencies with Node.js $(node --version)..."
+npm install --no-audit --no-fund

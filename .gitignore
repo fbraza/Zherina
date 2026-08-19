@@ -52,6 +52,7 @@ packages/astro/e2e/fixtures/cloudflare/.wrangler/deploy/config.json
 DESIGN.md
 .DS_Store
 .pi/
+.amp/portals/
 
 # local project tracker
 /ONGOING.md

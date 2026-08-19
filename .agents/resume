@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# The website has no backing services to repair. Amp's supervised web service
+# survives orb pause/resume and can be restored with `amp orb services ensure`.
+exit 0
