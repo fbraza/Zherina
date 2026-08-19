@@ -39,13 +39,6 @@
                     Let's build together.
                 </p>
             </div>
-
-            <a
-                href="#contact"
-                class="hero-cta group mt-10 inline-flex min-h-11 items-center gap-3 border border-rule bg-raised px-4 font-mono text-[12px] leading-none tracking-[0.05em] text-text no-underline uppercase"
-            >
-                Book a strategy call <span aria-hidden="true">→</span>
-            </a>
         </div>
 
         <aside
@@ -62,19 +55,12 @@
                     loading="eager"
                     fetchpriority="high"
                 />
-                <div
-                    class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_62%,rgba(2,2,2,0.72)_100%)]"
-                    aria-hidden="true"
-                ></div>
-                <p class="absolute right-3 bottom-3 left-3 font-mono text-[10px] leading-[1.35] tracking-[0.05em] text-text uppercase sm:right-4 sm:bottom-4 sm:left-4 sm:text-[11px]">
-                    Julie Chesne<br />Biotech consultant
-                </p>
             </div>
 
             <div class="flex min-w-0 flex-col p-4 sm:p-6 lg:p-7">
-                <div class="flex items-center gap-2 font-mono text-[10px] leading-none tracking-[0.05em] text-soft uppercase sm:text-[11px]">
-                    <span class="h-1.5 w-1.5 bg-accent" aria-hidden="true"></span>
-                    Consulting focus
+                <div class="flex items-start gap-2 font-mono text-[10px] leading-[1.35] tracking-[0.05em] text-soft sm:text-[11px]">
+                    <span class="mt-1 h-1.5 w-1.5 shrink-0 bg-accent" aria-hidden="true"></span>
+                    Dr. Julie Chesné, Principal Scientist, R&amp;D Consultant
                 </div>
 
                 <p class="mt-4 max-w-[25ch] text-[14px] leading-[1.35] tracking-[-0.01em] text-text sm:mt-6 sm:text-[16px]">
@@ -96,36 +82,3 @@
         </aside>
     </div>
 </section>
-
-<style>
-    .hero-cta {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero-cta::before {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        content: "";
-        opacity: 0;
-        background: repeating-linear-gradient(
-            45deg,
-            transparent 0 2px,
-            #4d4947 2px 3px,
-            transparent 3px 5px
-        );
-        background-size: 7px 7px;
-        transition: opacity 150ms ease-out;
-    }
-
-    .hero-cta:hover::before,
-    .hero-cta:focus-visible::before {
-        opacity: 0.45;
-    }
-
-    .hero-cta > * {
-        position: relative;
-        z-index: 1;
-    }
-</style>
