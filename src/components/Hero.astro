@@ -72,10 +72,12 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                     </span>
                 </div>
 
-                <div
-                    class="pubmed-logo mt-auto ml-[14px] w-[70%] max-w-[140px]"
-                    role="img"
-                    aria-label="PubMed"
+                <a
+                    href="https://pubmed.ncbi.nlm.nih.gov/?term=chesne+J&amp;sort=date"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="pubmed-logo mt-auto ml-[17px] w-[35%] max-w-[70px]"
+                    aria-label="View Julie Chesné publications on PubMed"
                 >
                     <img
                         src={pubmedWhiteUrl}
@@ -93,7 +95,7 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                         height="753"
                         loading="eager"
                     />
-                </div>
+                </a>
             </div>
         </aside>
     </div>
@@ -124,11 +126,18 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
         opacity: 0;
     }
 
-    .pubmed-logo:hover .pubmed-logo__image--white {
+    .pubmed-logo:hover .pubmed-logo__image--white,
+    .pubmed-logo:focus-visible .pubmed-logo__image--white {
         opacity: 0;
     }
 
-    .pubmed-logo:hover .pubmed-logo__image--orange {
+    .pubmed-logo:hover .pubmed-logo__image--orange,
+    .pubmed-logo:focus-visible .pubmed-logo__image--orange {
         opacity: 1;
+    }
+
+    .pubmed-logo:focus-visible {
+        outline: 1px solid var(--color-accent);
+        outline-offset: 4px;
     }
 </style>
