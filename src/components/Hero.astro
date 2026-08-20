@@ -1,5 +1,6 @@
 ---
-import linkedinLogoUrl from "../../assets/linkedin-logo.png?url";
+import linkedinHoverUrl from "../../assets/linkedin-logo-hover.png?url";
+import linkedinMutedUrl from "../../assets/linkedin-logo-muted.png?url";
 import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
 import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
 ---
@@ -107,7 +108,7 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                         aria-label="View Julie Chesné on LinkedIn"
                     >
                         <img
-                            src={linkedinLogoUrl}
+                            src={linkedinMutedUrl}
                             alt=""
                             class="linkedin-logo__image linkedin-logo__image--base"
                             width="1762"
@@ -115,17 +116,9 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                             loading="eager"
                         />
                         <img
-                            src={linkedinLogoUrl}
+                            src={linkedinHoverUrl}
                             alt=""
-                            class="linkedin-logo__image linkedin-logo__image--orange-i"
-                            width="1762"
-                            height="1733"
-                            loading="eager"
-                        />
-                        <img
-                            src={linkedinLogoUrl}
-                            alt=""
-                            class="linkedin-logo__image linkedin-logo__image--white-n"
+                            class="linkedin-logo__image linkedin-logo__image--hover"
                             width="1762"
                             height="1733"
                             loading="eager"
@@ -203,19 +196,10 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
 
     .linkedin-logo__image--base {
         opacity: 1;
-        filter: brightness(0) invert(55%);
     }
 
-    .linkedin-logo__image--orange-i {
+    .linkedin-logo__image--hover {
         opacity: 0;
-        filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(3348%) hue-rotate(343deg) brightness(99%) contrast(89%);
-        clip-path: inset(0 68% 0 0);
-    }
-
-    .linkedin-logo__image--white-n {
-        opacity: 0;
-        filter: brightness(0) invert(93%);
-        clip-path: inset(0 0 0 27%);
     }
 
     .linkedin-logo:hover .linkedin-logo__image--base,
@@ -223,10 +207,8 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
         opacity: 0;
     }
 
-    .linkedin-logo:hover .linkedin-logo__image--orange-i,
-    .linkedin-logo:hover .linkedin-logo__image--white-n,
-    .linkedin-logo:focus-visible .linkedin-logo__image--orange-i,
-    .linkedin-logo:focus-visible .linkedin-logo__image--white-n {
+    .linkedin-logo:hover .linkedin-logo__image--hover,
+    .linkedin-logo:focus-visible .linkedin-logo__image--hover {
         opacity: 1;
     }
 
