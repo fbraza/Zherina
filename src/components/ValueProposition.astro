@@ -1,0 +1,52 @@
+---
+const values = [
+    {
+        title: "Hands-on scientific depth",
+        description:
+            "I go beyond high-level advice. I work directly with the data, primary literature and external evidence to understand the biology in depth and develop recommendations grounded in the science.",
+    },
+    {
+        title: "Collaborative thinking",
+        description:
+            "Frequent communication, idea sharing and scientific discussion are central to my approach. I work closely with teams to challenge interpretations, brainstorm possibilities and progressively mature the scientific understanding of a programme.",
+    },
+    {
+        title: "Curiosity with intellectual rigor",
+        description:
+            "New targets and indications are an opportunity to learn. I approach each programme from first principles, while remaining clear about what is known, what is uncertain and what still needs to be demonstrated.",
+    },
+];
+---
+
+<section
+    id="how-i-work"
+    class="mt-20 scroll-mt-[140px] md:scroll-mt-24"
+    aria-labelledby="value-proposition-title"
+>
+    <div class="border-t border-rule pt-4 pb-8">
+        <h2
+            id="value-proposition-title"
+            class="inline-flex items-center gap-3 font-mono text-[12px] leading-none tracking-[-0.015rem] text-muted uppercase"
+        >
+            <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>
+            Value Proposition
+        </h2>
+    </div>
+
+    <div>
+        {values.map((value) => (
+            <article class="flex gap-4 border-b border-rule py-8 md:gap-6 lg:py-10 xl:gap-8">
+                <span data-icon-slot class="block size-6 shrink-0" aria-hidden="true"></span>
+
+                <div class="flex min-w-0 flex-col gap-3">
+                    <h3 class="font-sans text-[22px] leading-[1.08] tracking-[-0.02em] text-text lg:text-[24px]">
+                        {value.title}
+                    </h3>
+                    <p class="max-w-[100ch] font-mono text-[14px] leading-[1.5] tracking-[-0.01em] text-muted lg:text-[16px]">
+                        {value.description}
+                    </p>
+                </div>
+            </article>
+        ))}
+    </div>
+</section>

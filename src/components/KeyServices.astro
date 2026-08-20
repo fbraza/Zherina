@@ -1,0 +1,66 @@
+---
+const services = [
+    {
+        title: "Build a stronger biological rationale.",
+        description:
+            "I integrate internal data with independent literature research, disease biology and external benchmarks to refine the mechanism of action, challenge assumptions and identify the scientific questions that matter most.",
+    },
+    {
+        title: "Turn questions into key experiments.",
+        description:
+            "I design relevant in vitro and in vivo studies, define endpoints and biomarkers, engage with CROs, review proposals and quotations, and help build a focused experimental plan aligned with programme priorities.",
+    },
+    {
+        title: "Link preclinical with human relevance early.",
+        description:
+            "I assess target biology, expression and function across human and model systems, and help define biomarkers, pharmacodynamic readouts and translational evidence supporting the path toward clinical development.",
+    },
+    {
+        title: "Transform results into actionable insights.",
+        description:
+            "I analyse experimental data, create clear visualisations and integrate results with literature and benchmark datasets to determine what the evidence supports and build a coherent scientific narrative.",
+    },
+    {
+        title: "Shape the preclinical package toward the clinic.",
+        description:
+            "I support PK/PD, tolerability, toxicology and biomarker planning, coordinate with GLP and non-GLP CROs, and help structure the evidence required to progress toward IND-enabling development.",
+    },
+    {
+        title: "Bring scientific depth to critical decisions.",
+        description:
+            "I support scientific reviews, SAB discussions, due diligence, grant applications and strategic documents by synthesising complex evidence into clear conclusions, risks and recommendations.",
+    },
+];
+---
+
+<section
+    id="services"
+    class="scroll-mt-[140px] md:scroll-mt-24"
+    aria-labelledby="key-services-title"
+>
+    <div class="border-t border-rule pt-4">
+        <h2
+            id="key-services-title"
+            class="inline-flex items-center gap-3 font-mono text-[12px] leading-none tracking-[-0.015rem] text-muted uppercase"
+        >
+            <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>
+            Key Services
+        </h2>
+    </div>
+
+    <ul class="grid w-full gap-x-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-10">
+        {services.map((service) => (
+            <li class="mt-10 flex min-w-0 flex-col lg:mt-14">
+                <span data-icon-slot class="block size-6 shrink-0" aria-hidden="true"></span>
+
+                <h3 class="mt-6 font-sans text-[22px] leading-[1.08] tracking-[-0.02em] text-text md:min-h-[48px] lg:min-h-[61px] lg:text-[28px]">
+                    {service.title}
+                </h3>
+
+                <p class="mt-6 font-mono text-[14px] leading-[1.5] tracking-[-0.01em] text-muted lg:text-[16px]">
+                    {service.description}
+                </p>
+            </li>
+        ))}
+    </ul>
+</section>
