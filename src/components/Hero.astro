@@ -2,7 +2,6 @@
 import linkedinHoverUrl from "../../assets/linkedin-logo-hover.png?url";
 import linkedinMutedUrl from "../../assets/linkedin-logo-muted.png?url";
 import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
-import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
 ---
 
 <section class="relative isolate overflow-hidden px-4 py-12 md:px-9 md:py-16 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
@@ -83,17 +82,9 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                         aria-label="View Julie Chesné publications on PubMed"
                     >
                         <img
-                            src={pubmedWhiteUrl}
-                            alt=""
-                            class="pubmed-logo__image pubmed-logo__image--white"
-                            width="2089"
-                            height="753"
-                            loading="eager"
-                        />
-                        <img
                             src={pubmedOrangeUrl}
                             alt=""
-                            class="pubmed-logo__image pubmed-logo__image--orange"
+                            class="pubmed-logo__image"
                             width="2089"
                             height="753"
                             loading="eager"
@@ -150,24 +141,6 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
         object-fit: contain;
         filter: contrast(1.12);
         mix-blend-mode: screen;
-    }
-
-    .pubmed-logo__image--white {
-        opacity: 1;
-    }
-
-    .pubmed-logo__image--orange {
-        opacity: 0;
-    }
-
-    .pubmed-logo:hover .pubmed-logo__image--white,
-    .pubmed-logo:focus-visible .pubmed-logo__image--white {
-        opacity: 0;
-    }
-
-    .pubmed-logo:hover .pubmed-logo__image--orange,
-    .pubmed-logo:focus-visible .pubmed-logo__image--orange {
-        opacity: 1;
     }
 
     .pubmed-logo:focus-visible {
