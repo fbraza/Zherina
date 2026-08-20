@@ -1,4 +1,5 @@
 ---
+import linkedinLogoUrl from "../../assets/linkedin-logo.png?url";
 import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
 import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
 ---
@@ -105,11 +106,30 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                         class="linkedin-logo"
                         aria-label="View Julie Chesné on LinkedIn"
                     >
-                        <svg viewBox="0 0 24 14" aria-hidden="true">
-                            <circle class="linkedin-logo__i" cx="3" cy="2.5" r="2"></circle>
-                            <rect class="linkedin-logo__i" x="1" y="5.5" width="4" height="8.5" rx="0.5"></rect>
-                            <path class="linkedin-logo__n" d="M8 5.5h4v1.2c1.1-1.1 2.5-1.6 4.2-1.6 4 0 5.8 2.3 5.8 6.2V14h-4v-2.5c0-2.1-.4-3.4-2.6-3.4-2.3 0-3.4 1.5-3.4 3.6V14H8z"></path>
-                        </svg>
+                        <img
+                            src={linkedinLogoUrl}
+                            alt=""
+                            class="linkedin-logo__image linkedin-logo__image--base"
+                            width="1762"
+                            height="1733"
+                            loading="eager"
+                        />
+                        <img
+                            src={linkedinLogoUrl}
+                            alt=""
+                            class="linkedin-logo__image linkedin-logo__image--orange-i"
+                            width="1762"
+                            height="1733"
+                            loading="eager"
+                        />
+                        <img
+                            src={linkedinLogoUrl}
+                            alt=""
+                            class="linkedin-logo__image linkedin-logo__image--white-n"
+                            width="1762"
+                            height="1733"
+                            loading="eager"
+                        />
                     </a>
                 </div>
             </div>
@@ -158,32 +178,51 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
     }
 
     .linkedin-logo {
-        display: grid;
+        position: relative;
+        display: block;
         width: 24px;
         height: 22px;
-        align-items: center;
-        justify-items: start;
+        margin-left: 4px;
     }
 
-    .linkedin-logo svg {
-        width: 17px;
-        height: 10px;
+    .linkedin-logo__image {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        transform: translateY(-50%);
+        transition: opacity 150ms ease;
     }
 
-    .linkedin-logo__i,
-    .linkedin-logo__n {
-        fill: var(--color-muted);
-        transition: fill 150ms ease;
+    .linkedin-logo__image--base {
+        opacity: 1;
+        filter: brightness(0) invert(55%);
     }
 
-    .linkedin-logo:hover .linkedin-logo__i,
-    .linkedin-logo:focus-visible .linkedin-logo__i {
-        fill: var(--color-accent);
+    .linkedin-logo__image--orange-i {
+        opacity: 0;
+        filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(3348%) hue-rotate(343deg) brightness(99%) contrast(89%);
+        clip-path: inset(0 68% 0 0);
     }
 
-    .linkedin-logo:hover .linkedin-logo__n,
-    .linkedin-logo:focus-visible .linkedin-logo__n {
-        fill: var(--color-text);
+    .linkedin-logo__image--white-n {
+        opacity: 0;
+        filter: brightness(0) invert(93%);
+        clip-path: inset(0 0 0 27%);
+    }
+
+    .linkedin-logo:hover .linkedin-logo__image--base,
+    .linkedin-logo:focus-visible .linkedin-logo__image--base {
+        opacity: 0;
+    }
+
+    .linkedin-logo:hover .linkedin-logo__image--orange-i,
+    .linkedin-logo:hover .linkedin-logo__image--white-n,
+    .linkedin-logo:focus-visible .linkedin-logo__image--orange-i,
+    .linkedin-logo:focus-visible .linkedin-logo__image--white-n {
+        opacity: 1;
     }
 
     .linkedin-logo:focus-visible {
@@ -196,9 +235,9 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
             height: 25px;
         }
 
-        .linkedin-logo svg {
-            width: 20px;
-            height: 11px;
+        .linkedin-logo__image {
+            width: 18px;
+            height: 18px;
         }
     }
 </style>
