@@ -1,9 +1,10 @@
-import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 import { defineConfig, envField } from "astro/config";
 
 export default defineConfig({
+    site: "https://www.zhirena.com",
     output: "server",
-    adapter: node({ mode: "standalone" }),
+    adapter: cloudflare({ imageService: "compile" }),
     env: {
         schema: {
             CONTACT_EMAIL: envField.string({ context: "server", access: "secret" }),

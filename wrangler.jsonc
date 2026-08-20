@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "zhirena",
+  "compatibility_date": "2026-08-20",
+  "secrets": {
+    "required": [
+      "CONTACT_EMAIL",
+      "RESEND_API_KEY",
+      "RESEND_FROM_EMAIL"
+    ]
+  }
+}
