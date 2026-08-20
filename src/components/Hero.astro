@@ -1,6 +1,41 @@
 ---
 import linkedinLogoUrl from "../../assets/linkedin-logo-muted.png?url";
 import pubmedLogoUrl from "../../assets/pubmed-logo-muted.png?url";
+
+const expertise = [
+    "Immunology",
+    "Obesity",
+    "Metabolic Diseases",
+    "MASH",
+    "Cancer",
+    "Immuno-Oncology",
+    "Inflammation",
+    "Respiratory Diseases",
+    "Kidney Disease",
+    "Small Molecules",
+    "Antibodies",
+    "RNA Therapeutics",
+    "Oligonucleotides",
+    "siRNA",
+    "Drug Discovery",
+    "Preclinical Pharmacology",
+    "Translational Research",
+    "Mechanism of Action",
+    "Target Validation",
+    "Experimental Design",
+    "In Vivo Models",
+    "In Vitro Models",
+    "Human Translational Models",
+    "Biomarkers",
+    "Data Integration",
+    "Scientific Strategy",
+    "CRO Management",
+    "Immune Profiling",
+    "Flow Cytometry",
+    "Gene Expression",
+];
+
+const initialExpertise = expertise.slice(0, 7);
 ---
 
 <section class="relative isolate overflow-hidden px-4 py-12 md:px-9 md:py-16 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
@@ -47,7 +82,7 @@ import pubmedLogoUrl from "../../assets/pubmed-logo-muted.png?url";
         </div>
 
         <aside
-            class="relative grid min-h-[272px] grid-cols-[43%_57%] overflow-hidden rounded-[4px] border border-transparent bg-surface sm:min-h-[340px] sm:grid-cols-[48%_52%] lg:aspect-[5/4] lg:min-h-0 lg:grid-cols-[56%_44%]"
+            class="relative grid h-[320px] grid-cols-[43%_57%] overflow-hidden rounded-[4px] border border-transparent bg-surface sm:h-auto sm:min-h-[340px] sm:grid-cols-[48%_52%] lg:aspect-[5/4] lg:min-h-0 lg:grid-cols-[56%_44%]"
             aria-label="Julie Chesne consulting expertise"
         >
             <div class="relative min-h-0 overflow-hidden bg-accent">
@@ -62,7 +97,7 @@ import pubmedLogoUrl from "../../assets/pubmed-logo-muted.png?url";
                 />
             </div>
 
-            <div class="flex min-w-0 flex-col bg-black p-4 sm:p-6 lg:p-7">
+            <div class="flex min-h-0 min-w-0 flex-col overflow-hidden bg-black p-4 sm:p-6 lg:p-7">
                 <div class="flex items-start gap-3 font-mono text-[10px] leading-[1.35] tracking-[0.05em] text-soft uppercase sm:text-[11px]">
                     <span class="mt-[3px] size-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                     <span>
@@ -72,17 +107,18 @@ import pubmedLogoUrl from "../../assets/pubmed-logo-muted.png?url";
                     </span>
                 </div>
 
-                <blockquote class="flex flex-1 items-center justify-center py-5 text-center sm:py-6 lg:py-5">
-                    <p class="font-sans text-[clamp(0.875rem,1.45vw,1.25rem)] leading-[1.05] tracking-[-0.04em] text-text">
-                        “I’m here to work closely with you and your team,
-                        communicating frequently throughout our engagement. I
-                        dive directly into your data package and the literature,
-                        proactively sharing my observations, knowledge and new
-                        ideas as they emerge. Our discussions will help refine
-                        your scientific package and ensure it supports your
-                        research program.”
-                    </p>
-                </blockquote>
+                <ul
+                    class="expertise-horizon"
+                    aria-label="Areas of expertise"
+                    data-expertise-horizon
+                    data-expertise={JSON.stringify(expertise)}
+                >
+                    {initialExpertise.map((label, index) => (
+                        <li style={`--word-top: ${10 + index * (80 / 6)}%`}>
+                            <span>{label}</span>
+                        </li>
+                    ))}
+                </ul>
 
                 <div class="flex items-center justify-end gap-3">
                     <a
@@ -129,6 +165,71 @@ import pubmedLogoUrl from "../../assets/pubmed-logo-muted.png?url";
     </div>
 </section>
 
+<script>
+    const horizon = document.querySelector<HTMLElement>("[data-expertise-horizon]");
+
+    if (horizon) {
+        const words = JSON.parse(horizon.dataset.expertise ?? "[]") as string[];
+        const slots = Array.from(horizon.querySelectorAll<HTMLElement>("li"));
+        const mobileQuery = window.matchMedia("(max-width: 639px)");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        let pool: string[] = [];
+
+        const nextWord = () => {
+            const visible = slots
+                .filter((slot) => !slot.hidden)
+                .map((slot) => slot.textContent?.trim());
+
+            if (!pool.length) {
+                pool = [...words].sort(() => Math.random() - 0.5);
+            }
+
+            const index = pool.findIndex((word) => !visible.includes(word));
+            return pool.splice(index < 0 ? 0 : index, 1)[0];
+        };
+
+        const launch = (slot: HTMLElement, index: number, count: number, initial = false) => {
+            const mobile = mobileQuery.matches;
+            const label = nextWord();
+            const preferredSize = 10 + Math.random() * 4;
+            const availableWidth = mobile ? 118 : 205;
+            const fittedSize = availableWidth / (label.length * 0.62);
+
+            slot.hidden = false;
+            slot.querySelector("span")!.textContent = label;
+            slot.style.setProperty("--word-top", `${10 + index * (80 / Math.max(1, count - 1))}%`);
+            slot.style.setProperty("--word-size", `${Math.max(mobile ? 8 : 9, Math.min(preferredSize, fittedSize))}px`);
+            slot.style.setProperty("--word-opacity", `${0.65 + Math.random() * 0.25}`);
+            slot.style.setProperty("--word-duration", `${10 + Math.random() * 5}s`);
+            slot.style.setProperty("--word-travel", mobile ? "12px" : "24px");
+            slot.style.animationDelay = initial ? `${index * -0.7}s` : "0s";
+            slot.classList.remove("is-moving");
+            void slot.offsetWidth;
+            slot.classList.add("is-moving");
+        };
+
+        const setup = () => {
+            const count = mobileQuery.matches ? 5 : 7;
+            slots.forEach((slot, index) => {
+                slot.classList.remove("is-moving");
+                slot.hidden = index >= count;
+                if (index < count) launch(slot, index, count, true);
+            });
+        };
+
+        slots.forEach((slot, index) => {
+            slot.addEventListener("animationend", () => {
+                if (!slot.hidden && !reducedMotion.matches) {
+                    launch(slot, index, mobileQuery.matches ? 5 : 7);
+                }
+            });
+        });
+
+        setup();
+        mobileQuery.addEventListener("change", setup);
+    }
+</script>
+
 <style>
     .pubmed-logo {
         position: relative;
@@ -169,6 +270,73 @@ import pubmedLogoUrl from "../../assets/pubmed-logo-muted.png?url";
     .linkedin-logo:focus-visible {
         outline: 1px solid var(--color-accent);
         outline-offset: 2px;
+    }
+
+    .expertise-horizon {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        margin: 0.8rem 0;
+        padding: 0;
+        overflow: hidden;
+        list-style: none;
+    }
+
+    .expertise-horizon li {
+        position: absolute;
+        top: var(--word-top);
+        left: 3%;
+        color: var(--color-silver);
+        font-family: var(--font-mono);
+        font-size: var(--word-size, 12px);
+        line-height: 1;
+        white-space: nowrap;
+        opacity: var(--word-opacity, 0.72);
+        will-change: transform, opacity;
+    }
+
+    .expertise-horizon span {
+        display: block;
+        transition:
+            color 240ms ease,
+            transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1);
+    }
+
+    .expertise-horizon li:hover {
+        z-index: 1;
+        animation-play-state: paused;
+    }
+
+    .expertise-horizon li:hover span {
+        color: var(--color-accent);
+        transform: scale(1.24);
+    }
+
+    .expertise-horizon li.is-moving {
+        animation: horizon-pass var(--word-duration) linear forwards;
+    }
+
+    @keyframes horizon-pass {
+        0% {
+            transform: translateX(0) scale(0.9);
+            opacity: 0;
+        }
+
+        18%,
+        80% {
+            opacity: var(--word-opacity);
+        }
+
+        100% {
+            transform: translateX(var(--word-travel)) scale(1.04);
+            opacity: 0;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .expertise-horizon li.is-moving {
+            animation: none;
+        }
     }
 
     @media (min-width: 640px) {
