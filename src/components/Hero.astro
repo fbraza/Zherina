@@ -72,30 +72,46 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
                     </span>
                 </div>
 
-                <a
-                    href="https://pubmed.ncbi.nlm.nih.gov/?term=chesne+J&amp;sort=date"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="pubmed-logo mt-auto ml-[17px] w-[35%] max-w-[70px]"
-                    aria-label="View Julie Chesné publications on PubMed"
-                >
-                    <img
-                        src={pubmedWhiteUrl}
-                        alt=""
-                        class="pubmed-logo__image pubmed-logo__image--white"
-                        width="2089"
-                        height="753"
-                        loading="eager"
-                    />
-                    <img
-                        src={pubmedOrangeUrl}
-                        alt=""
-                        class="pubmed-logo__image pubmed-logo__image--orange"
-                        width="2089"
-                        height="753"
-                        loading="eager"
-                    />
-                </a>
+                <div class="mt-auto ml-[17px] flex items-center">
+                    <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/?term=chesne+J&amp;sort=date"
+                        target="_blank"
+                        rel="noreferrer"
+                        class="pubmed-logo w-[60px] sm:w-[70px]"
+                        aria-label="View Julie Chesné publications on PubMed"
+                    >
+                        <img
+                            src={pubmedWhiteUrl}
+                            alt=""
+                            class="pubmed-logo__image pubmed-logo__image--white"
+                            width="2089"
+                            height="753"
+                            loading="eager"
+                        />
+                        <img
+                            src={pubmedOrangeUrl}
+                            alt=""
+                            class="pubmed-logo__image pubmed-logo__image--orange"
+                            width="2089"
+                            height="753"
+                            loading="eager"
+                        />
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/julie-chesn%C3%A9/"
+                        target="_blank"
+                        rel="noreferrer"
+                        class="linkedin-logo"
+                        aria-label="View Julie Chesné on LinkedIn"
+                    >
+                        <svg viewBox="0 0 24 14" aria-hidden="true">
+                            <circle class="linkedin-logo__i" cx="3" cy="2.5" r="2"></circle>
+                            <rect class="linkedin-logo__i" x="1" y="5.5" width="4" height="8.5" rx="0.5"></rect>
+                            <path class="linkedin-logo__n" d="M8 5.5h4v1.2c1.1-1.1 2.5-1.6 4.2-1.6 4 0 5.8 2.3 5.8 6.2V14h-4v-2.5c0-2.1-.4-3.4-2.6-3.4-2.3 0-3.4 1.5-3.4 3.6V14H8z"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </aside>
     </div>
@@ -139,5 +155,50 @@ import pubmedWhiteUrl from "../../assets/pubmed-variant-white-m.png?url";
     .pubmed-logo:focus-visible {
         outline: 1px solid var(--color-accent);
         outline-offset: 4px;
+    }
+
+    .linkedin-logo {
+        display: grid;
+        width: 24px;
+        height: 22px;
+        align-items: center;
+        justify-items: start;
+    }
+
+    .linkedin-logo svg {
+        width: 17px;
+        height: 10px;
+    }
+
+    .linkedin-logo__i,
+    .linkedin-logo__n {
+        fill: var(--color-muted);
+        transition: fill 150ms ease;
+    }
+
+    .linkedin-logo:hover .linkedin-logo__i,
+    .linkedin-logo:focus-visible .linkedin-logo__i {
+        fill: var(--color-accent);
+    }
+
+    .linkedin-logo:hover .linkedin-logo__n,
+    .linkedin-logo:focus-visible .linkedin-logo__n {
+        fill: var(--color-text);
+    }
+
+    .linkedin-logo:focus-visible {
+        outline: 1px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+
+    @media (min-width: 640px) {
+        .linkedin-logo {
+            height: 25px;
+        }
+
+        .linkedin-logo svg {
+            width: 20px;
+            height: 11px;
+        }
     }
 </style>
