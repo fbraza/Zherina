@@ -1,3 +1,8 @@
+---
+import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
+import pubmedSilverUrl from "../../assets/pubmed-variant-silver-baseline.png?url";
+---
+
 <section class="relative isolate overflow-hidden px-4 py-12 md:px-9 md:py-16 lg:min-h-[calc(100svh-72px)] lg:pt-32 lg:pb-20">
     <div
         class="pointer-events-none absolute inset-0"
@@ -57,7 +62,7 @@
                 />
             </div>
 
-            <div class="flex min-w-0 flex-col p-4 sm:p-6 lg:p-7">
+            <div class="flex min-w-0 flex-col bg-canvas p-4 sm:p-6 lg:p-7">
                 <div class="flex items-start gap-3 font-mono text-[10px] leading-[1.35] tracking-[0.05em] text-soft uppercase sm:text-[11px]">
                     <span class="mt-[3px] size-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                     <span>
@@ -66,7 +71,83 @@
                         <span class="block">R&amp;D Consultant</span>
                     </span>
                 </div>
+
+                <div
+                    class="pubmed-logo mt-auto ml-5 w-[calc(100%-1.25rem)] max-w-[200px]"
+                    role="img"
+                    aria-label="PubMed"
+                >
+                    <img
+                        src={pubmedSilverUrl}
+                        alt=""
+                        class="pubmed-logo__image pubmed-logo__image--silver"
+                        width="2089"
+                        height="753"
+                        loading="eager"
+                    />
+                    <img
+                        src={pubmedOrangeUrl}
+                        alt=""
+                        class="pubmed-logo__image pubmed-logo__image--orange"
+                        width="2089"
+                        height="753"
+                        loading="eager"
+                    />
+                </div>
             </div>
         </aside>
     </div>
 </section>
+
+<style>
+    .pubmed-logo {
+        position: relative;
+        isolation: isolate;
+        aspect-ratio: 2089 / 753;
+    }
+
+    .pubmed-logo__image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .pubmed-logo__image--silver {
+        opacity: 1;
+        transition: opacity 240ms ease 180ms;
+    }
+
+    .pubmed-logo__image--orange {
+        opacity: 0;
+        clip-path: inset(0 46% 0 46%);
+        transform: scale(0.985);
+        transition:
+            opacity 180ms ease,
+            clip-path 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .pubmed-logo:hover .pubmed-logo__image--silver {
+        opacity: 0;
+        transition-delay: 0ms;
+    }
+
+    .pubmed-logo:hover .pubmed-logo__image--orange {
+        opacity: 1;
+        clip-path: inset(0);
+        transform: scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pubmed-logo__image {
+            transition: none;
+        }
+
+        .pubmed-logo__image--orange {
+            clip-path: inset(0);
+            transform: none;
+        }
+    }
+</style>
