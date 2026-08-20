@@ -1,9 +1,9 @@
 ---
 const fields = [
-    { id: "first-name", label: "First Name", type: "text", autocomplete: "given-name" },
-    { id: "last-name", label: "Last Name", type: "text", autocomplete: "family-name" },
-    { id: "company", label: "Company", type: "text", autocomplete: "organization" },
-    { id: "work-email", label: "Work Email", type: "email", autocomplete: "email" },
+    { id: "first-name", label: "First Name", type: "text", autocomplete: "given-name", maxlength: 100 },
+    { id: "last-name", label: "Last Name", type: "text", autocomplete: "family-name", maxlength: 100 },
+    { id: "company", label: "Company", type: "text", autocomplete: "organization", maxlength: 200 },
+    { id: "work-email", label: "Work Email", type: "email", autocomplete: "email", maxlength: 254 },
 ];
 ---
 
@@ -28,14 +28,19 @@ const fields = [
     </div>
 
     <div class="rounded-[6px] border border-rule bg-surface p-4 md:p-8 lg:col-span-6 lg:col-start-7 lg:mt-8">
-        <form>
+        <form id="contact-form">
             <div class="mb-6 flex items-center text-xl text-text lg:mb-10 lg:text-2xl">
                 <span class="mr-3 size-2 rounded-full bg-accent" aria-hidden="true"></span>
                 Contact us
             </div>
 
+            <div class="absolute -left-[10000px]" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                {fields.map(({ id, label, type, autocomplete }) => (
+                {fields.map(({ id, label, type, autocomplete, maxlength }) => (
                     <div>
                         <label for={id} class="mb-2 block font-mono text-[12px] leading-[12px] tracking-[-0.015rem] text-text uppercase">
                             {label}*
@@ -46,6 +51,7 @@ const fields = [
                             type={type}
                             autocomplete={autocomplete}
                             placeholder={label}
+                            maxlength={maxlength}
                             required
                             class="block h-9 w-full rounded-[3px] border border-rule bg-transparent px-4 font-sans text-[12px] text-text placeholder:text-muted transition-colors focus:border-accent focus:outline-none"
                         />
@@ -78,18 +84,59 @@ const fields = [
                         id="message"
                         name="message"
                         rows="3"
+                        maxlength="5000"
                         placeholder="Tell us about your use case, timeline, or any questions..."
                         class="block h-[72px] w-full resize-none rounded-[3px] border border-rule bg-transparent px-4 py-2 font-sans text-[12px] leading-[18px] text-text placeholder:text-muted transition-colors focus:border-accent focus:outline-none"
                     ></textarea>
                 </div>
             </div>
 
-            <button type="submit" class="mt-8 inline-flex h-[31px] items-center rounded-[3px] bg-rule-strong px-[14px] text-canvas transition-colors hover:bg-text">
+            <button type="submit" class="mt-8 inline-flex h-[31px] items-center rounded-[3px] bg-rule-strong px-[14px] text-canvas transition-colors hover:bg-text disabled:cursor-wait disabled:opacity-60">
                 <span class="flex items-center gap-2 uppercase">
-                    <span class="font-mono text-[14px] leading-[14px] tracking-[-0.0175rem]">SUBMIT</span>
+                    <span data-submit-label class="font-mono text-[14px] leading-[14px] tracking-[-0.0175rem]">SUBMIT</span>
                     <span class="inline-block w-[18px] text-center" aria-hidden="true">→</span>
                 </span>
             </button>
+            <p data-form-status class="mt-4 hidden font-mono text-[12px] leading-[18px]" role="status" aria-live="polite"></p>
         </form>
     </div>
 </section>
+
+<script>
+    const form = document.querySelector<HTMLFormElement>("#contact-form");
+
+    if (form) {
+        const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+        const label = form.querySelector<HTMLElement>("[data-submit-label]");
+        const status = form.querySelector<HTMLElement>("[data-form-status]");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            if (!button || !label || !status) return;
+
+            button.disabled = true;
+            label.textContent = "SENDING...";
+            status.classList.add("hidden");
+
+            try {
+                const response = await fetch("/api/contact", {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { Accept: "application/json" },
+                });
+
+                if (!response.ok) throw new Error("Contact request failed");
+
+                form.reset();
+                status.textContent = "Thank you. Your message has been sent.";
+                status.className = "mt-4 font-mono text-[12px] leading-[18px] text-accent";
+            } catch {
+                status.textContent = "We couldn't send your message. Please try again shortly.";
+                status.className = "mt-4 font-mono text-[12px] leading-[18px] text-text";
+            } finally {
+                button.disabled = false;
+                label.textContent = "SUBMIT";
+            }
+        });
+    }
+</script>
