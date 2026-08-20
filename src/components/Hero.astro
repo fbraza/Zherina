@@ -1,6 +1,5 @@
 ---
-import linkedinHoverUrl from "../../assets/linkedin-logo-hover.png?url";
-import linkedinMutedUrl from "../../assets/linkedin-logo-muted.png?url";
+import linkedinLogoUrl from "../../assets/linkedin-logo-hover.png?url";
 import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
 ---
 
@@ -99,17 +98,9 @@ import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
                         aria-label="View Julie Chesné on LinkedIn"
                     >
                         <img
-                            src={linkedinMutedUrl}
+                            src={linkedinLogoUrl}
                             alt=""
-                            class="linkedin-logo__image linkedin-logo__image--base"
-                            width="1762"
-                            height="1733"
-                            loading="eager"
-                        />
-                        <img
-                            src={linkedinHoverUrl}
-                            alt=""
-                            class="linkedin-logo__image linkedin-logo__image--hover"
+                            class="linkedin-logo__image"
                             width="1762"
                             height="1733"
                             loading="eager"
@@ -164,25 +155,6 @@ import pubmedOrangeUrl from "../../assets/pubmed-variant-orange-m.png?url";
         height: 12.8px;
         object-fit: contain;
         transform: translateY(-56%);
-        transition: opacity 150ms ease;
-    }
-
-    .linkedin-logo__image--base {
-        opacity: 1;
-    }
-
-    .linkedin-logo__image--hover {
-        opacity: 0;
-    }
-
-    .linkedin-logo:hover .linkedin-logo__image--base,
-    .linkedin-logo:focus-visible .linkedin-logo__image--base {
-        opacity: 0;
-    }
-
-    .linkedin-logo:hover .linkedin-logo__image--hover,
-    .linkedin-logo:focus-visible .linkedin-logo__image--hover {
-        opacity: 1;
     }
 
     .linkedin-logo:focus-visible {
