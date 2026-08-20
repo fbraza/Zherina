@@ -1,19 +1,26 @@
 ---
+import collaborativeThinkingIcon from "../../assets/icons/collaborative-thinking.png";
+import curiosityIcon from "../../assets/icons/curiosity-with-intellectual-rigor.png";
+import scientificDepthIcon from "../../assets/icons/hands-on-scientific-depth.png";
+
 const values = [
     {
         title: "Hands-on scientific depth",
         description:
             "I go beyond high-level advice. I work directly with the data, primary literature and external evidence to understand the biology in depth and develop recommendations grounded in the science.",
+        icon: scientificDepthIcon,
     },
     {
         title: "Collaborative thinking",
         description:
             "Frequent communication, idea sharing and scientific discussion are central to my approach. I work closely with teams to challenge interpretations, brainstorm possibilities and progressively mature the scientific understanding of a programme.",
+        icon: collaborativeThinkingIcon,
     },
     {
         title: "Curiosity with intellectual rigor",
         description:
             "New targets and indications are an opportunity to learn. I approach each programme from first principles, while remaining clear about what is known, what is uncertain and what still needs to be demonstrated.",
+        icon: curiosityIcon,
     },
 ];
 ---
@@ -35,8 +42,16 @@ const values = [
 
     <div>
         {values.map((value) => (
-            <article class="flex gap-4 border-b border-rule py-8 md:gap-6 lg:py-10 xl:gap-8">
-                <span data-icon-slot class="block size-6 shrink-0" aria-hidden="true"></span>
+            <article class="flex gap-4 border-b border-rule py-8 md:gap-5 lg:py-10 xl:gap-6">
+                <img
+                    data-icon-slot
+                    src={value.icon.src}
+                    alt=""
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                    class="size-10 shrink-0 object-contain"
+                />
 
                 <div class="flex min-w-0 flex-col gap-3">
                     <h3 class="font-sans text-[22px] leading-[1.08] tracking-[-0.02em] text-text lg:text-[24px]">
