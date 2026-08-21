@@ -11,11 +11,11 @@ import silengenicsGrey from "../../assets/companies/SILENGENICS_GREY.png";
 import silengenicsWhite from "../../assets/companies/SILENGENICS_WHITE.png";
 
 const companies = [
-    { name: "Institut du Thorax", grey: institutGrey, white: institutWhite, scale: 0.84 },
-    { name: "Champalimaud", grey: champalimaudGrey, white: champalimaudWhite, scale: 1 },
-    { name: "LiMM Therapeutics", grey: limmGrey, white: limmWhite, scale: 2 },
-    { name: "iTeos", grey: iteosGrey, white: iteosWhite, scale: 0.88 },
-    { name: "Silengenics", grey: silengenicsGrey, white: silengenicsWhite, scale: 2.08 },
+    { name: "Institut du Thorax", grey: institutGrey, white: institutWhite, scale: 0.84, mobileScale: 0.82 },
+    { name: "Champalimaud", grey: champalimaudGrey, white: champalimaudWhite, scale: 1, mobileScale: 0.82 },
+    { name: "LiMM Therapeutics", grey: limmGrey, white: limmWhite, scale: 2, mobileScale: 1.35 },
+    { name: "iTeos", grey: iteosGrey, white: iteosWhite, scale: 0.88, mobileScale: 0.78 },
+    { name: "Silengenics", grey: silengenicsGrey, white: silengenicsWhite, scale: 2.08, mobileScale: 1.12 },
 ];
 
 ---
@@ -37,7 +37,7 @@ const companies = [
                                 aria-label={exposed ? company.name : undefined}
                                 role={exposed ? "img" : undefined}
                                 tabindex={exposed ? 0 : -1}
-                                style={`--logo-scale: ${company.scale}`}
+                                style={`--logo-scale: ${company.scale}; --logo-mobile-scale: ${company.mobileScale}`}
                             >
                                 <img class="company-logo-grey" src={company.grey.src} alt="" />
                                 <img class="company-logo-white" src={company.white.src} alt="" />
@@ -115,8 +115,25 @@ const companies = [
     }
 
     @media (max-width: 767px) {
+        .companies-viewport {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+        }
+
         .companies-track {
             animation-duration: 52s;
+        }
+
+        .company-logo {
+            flex-basis: 160px;
+            width: 160px;
+            height: 72px;
+        }
+
+        .company-logo img {
+            max-width: 150px;
+            max-height: 52px;
+            transform: scale(var(--logo-mobile-scale));
         }
     }
 
