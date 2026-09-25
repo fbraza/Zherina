@@ -71,10 +71,6 @@ const hasMultipleTestimonials = testimonials.length > 1;
                     data-active={index === 0 ? "true" : "false"}
                     aria-hidden={index === 0 ? "false" : "true"}
                 >
-                    <blockquote>
-                        <p>“{testimonial.quote}”</p>
-                    </blockquote>
-
                     <footer>
                         <span class="attribution-mark" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none">
@@ -87,6 +83,18 @@ const hasMultipleTestimonials = testimonials.length > 1;
                             <p>{testimonial.role}</p>
                         </div>
                     </footer>
+
+                    <blockquote>
+                        <p>“{testimonial.quote}”</p>
+                    </blockquote>
+
+                    {hasMultipleTestimonials && (
+                        <button class="testimonial-next" type="button" aria-label="Next testimonial" data-testimonial-next>
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 12h15m-6-6 6 6-6 6" />
+                            </svg>
+                        </button>
+                    )}
                 </article>
             ))}
         </div>
@@ -170,7 +178,7 @@ const hasMultipleTestimonials = testimonials.length > 1;
     }
 
     .testimonial-tab[aria-selected="true"] .testimonial-tab__progress {
-        animation: testimonial-progress 8s linear forwards;
+        animation: testimonial-progress 16s linear forwards;
     }
 
     .testimonials[data-paused="true"] .testimonial-tab__progress {
@@ -188,20 +196,21 @@ const hasMultipleTestimonials = testimonials.length > 1;
         display: flex;
         grid-area: 1 / 1;
         flex-direction: column;
-        justify-content: space-between;
         min-width: 0;
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         transform: translateY(0.75rem);
         transition:
-            opacity 350ms ease,
-            transform 350ms ease,
-            visibility 350ms;
+            opacity 500ms ease,
+            transform 500ms ease,
+            visibility 500ms;
     }
 
     .testimonial-copy article[data-active="true"] {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
         transform: translateY(0);
     }
 
@@ -211,20 +220,52 @@ const hasMultipleTestimonials = testimonials.length > 1;
     }
 
     blockquote p {
-        max-width: 22ch;
+        max-width: 55ch;
         color: var(--color-text);
         font-family: var(--font-sans);
-        font-size: clamp(1.75rem, 7vw, 2.25rem);
+        font-size: 1.125rem;
         font-weight: 400;
-        line-height: 1;
-        letter-spacing: -0.045em;
+        line-height: 1.45;
+        letter-spacing: -0.02em;
     }
 
     footer {
         display: flex;
         align-items: flex-start;
         gap: 0.75rem;
-        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .testimonial-next {
+        display: grid;
+        width: 2.75rem;
+        height: 2.75rem;
+        flex: 0 0 auto;
+        align-self: flex-end;
+        margin-top: auto;
+        border: 1px solid var(--color-rule-strong);
+        border-radius: 3px;
+        color: var(--color-text);
+        background: transparent;
+        cursor: pointer;
+        place-items: center;
+    }
+
+    .testimonial-next:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
+    }
+
+    .testimonial-next:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+
+    .testimonial-next svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        stroke: currentColor;
+        stroke-width: 1.5;
     }
 
     .attribution-mark {
@@ -267,6 +308,10 @@ const hasMultipleTestimonials = testimonials.length > 1;
     }
 
     @media (min-width: 1024px) {
+        blockquote p {
+            font-size: 1.25rem;
+        }
+
         .testimonial-marker {
             width: 1rem;
             height: auto;
@@ -330,7 +375,7 @@ const hasMultipleTestimonials = testimonials.length > 1;
         const tabs = Array.from(section.querySelectorAll<HTMLButtonElement>("[data-testimonial-tab]"));
         const slides = Array.from(section.querySelectorAll<HTMLElement>("[data-testimonial-slide]"));
 
-        if (tabs.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (tabs.length < 2) return;
 
         let activeIndex = 0;
 
@@ -351,12 +396,17 @@ const hasMultipleTestimonials = testimonials.length > 1;
         };
 
         tabs.forEach((tab, index) => tab.addEventListener("click", () => show(index)));
-
-        section.addEventListener("animationend", (event) => {
-            if ((event.target as HTMLElement).classList.contains("testimonial-tab__progress")) {
-                show((activeIndex + 1) % tabs.length);
-            }
+        section.querySelectorAll<HTMLButtonElement>("[data-testimonial-next]").forEach((button) => {
+            button.addEventListener("click", () => show((activeIndex + 1) % tabs.length));
         });
+
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            section.addEventListener("animationend", (event) => {
+                if ((event.target as HTMLElement).classList.contains("testimonial-tab__progress")) {
+                    show((activeIndex + 1) % tabs.length);
+                }
+            });
+        }
 
         section.addEventListener("mouseenter", () => section.dataset.paused = "true");
         section.addEventListener("mouseleave", () => section.dataset.paused = "false");
